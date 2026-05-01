@@ -1,0 +1,35 @@
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "margin-left": 4,
+    "margin-right": 4,
+    "spacing": 0,
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/modules-custom.json"
+    ],
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris",        
+        "custom/empty"
+    ],
+    // Modules Center
+    "modules-center": [
+        "custom/empty"
+    ],
+    // Modules Right    
+    "modules-right": [
+        "custom/updates",
+        "group/hardware",
+        "group/tools",
+        "tray",
+        "network",
+        "battery",
+        "custom/notification",
+        "clock"
+    ]
+}
