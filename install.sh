@@ -82,7 +82,11 @@ for item in "${STOW_ITEMS[@]}"; do
       backup_name="${base_name}-backup-${TIMESTAMP}"
     else
       # It's a file
+<<<<<<< HEAD
       backup_name="${item}-backup-${TIMESTAMP}"
+=======
+      backup_name="${base_name}-backup-${TIMESTAMP}"
+>>>>>>> 4706998 (Updates)
     fi
 
     # Get the parent directory

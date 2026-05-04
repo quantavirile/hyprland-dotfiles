@@ -2,7 +2,7 @@
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors-matugen.conf'
+output_path = '~/.config/kitty/matugen.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.hyprland]
@@ -96,4 +96,3 @@ output_path = '~/.config/rmpc/themes/matugen.ron'
 [templates.starship]
 input_path = '~/.config/matugen/templates/starship-colors.toml'
 output_path = '~/.config/starship-matugen.toml'
-
