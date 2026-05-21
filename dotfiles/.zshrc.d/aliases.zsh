@@ -78,7 +78,7 @@ uptime_info() {
 }
 alias ff='fastfetch'
 alias clock='tty-clock'
-alias ascii='~/.config/ml4w/scripts/figlet.sh'
+alias ascii='~/.config/hyprland-dotfiles/scripts/figlet.sh'
 alias map='npx mapscii'
 alias spotx='bash <(curl -sSL https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/main/spotx.sh) -h'
 alias lowfi='lowfi -s 2'
