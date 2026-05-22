@@ -1,0 +1,13 @@
+-- Hyprland Configuration (Lua) — loads all conf/*.lua modules
+require("conf.monitor")
+require("conf.input")
+require("conf.gestures")
+require("conf.autostart")
+require("conf.environment")
+require("conf.layout")
+require("conf.animation")
+require("conf.theme")
+require("conf.windowrules")
+require("conf.misc")
+require("conf.plugins")
+require("conf.keybinds")
