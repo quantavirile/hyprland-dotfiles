@@ -1,0 +1,218 @@
+{
+  "hyprland/workspaces": {
+    "format": " {icon} ",
+    "on-click": "activate",
+    "format-icons": {
+      "active": "",
+      "empty": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "hyprland/window": {
+    "max-length": 60,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "Firefox",
+      "(.*) — Zen Browser": "Zen Browser",
+      "(.*) - Brave": "Brave",
+      "(.*) - Notesnook": "Notesnook",
+      "(.*) - FreeTube": "FreeTube",
+      "(.*) - mpv": "mpv Media Player",
+      "(.*) - VSCodium": "VSCodium",
+      "Yazi.*": "Yazi",
+      "class<kitty>": "Kitty" // TODO: Check this out
+    },
+    "separate-outputs": true
+  },
+  "custom/updates": {
+    "format": "  {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/hyprland-dotfiles/scripts/check-updates.sh",
+    "interval": 21600, // Check every 6 hours, 1 hour = 3600 seconds
+    "signal": 1,
+    "hide-empty-text": true,
+    "on-click": "~/.config/hyprland-dotfiles/scripts/topgrade.sh"
+  },
+  "custom/notification": {
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "notifications_active",
+      "none": "notifications",
+      "dnd-notification": "notifications_active",
+      "dnd-none": "notifications_paused",
+      "inhibited-notification": "notification_important",
+      "inhibited-none": "notification_important",
+      "dnd-inhibited-notification": "notification_off",
+      "dnd-inhibited-none": "notifications_off"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/hypridle": {
+    "format": "",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "exec": "~/.config/hypr/scripts/hypridle.sh status",
+    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "on-click": "gnome-calendar",
+    "timezone": "",
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}% ",
+    "states": {
+      "warning": 60,
+      "critical": 80
+    },
+    "on-click": "~/.config/hyprland-dotfiles/settings/system-monitor.sh"
+  },
+  "memory": {
+    "interval": 1,
+    "format": "  {}% ",
+    "states": {
+      "warning": 60,
+      "critical": 80
+    },
+    "on-click": "~/.config/hyprland-dotfiles/settings/system-monitor.sh"
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/system", "cpu", "memory"]
+  },
+  "group/tools": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/tools", "custom/hypridle", "power-profiles-daemon"]
+  },
+  "network": {
+    "format": "{bandwidthTotalBits} {ifname}",
+    "format-wifi": "{bandwidthTotalBits} 󰤨 ",
+    "format-ethernet": "{bandwidthTotalBits}  ",
+    "format-disconnected": "",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "󰤨 {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    // "max-length": 50,
+    "interval": 1,
+    "on-click": "~/.config/hyprland-dotfiles/settings/networkmanager.sh"
+  },
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon}  {time}",
+    "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 1
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "dynamic-len": 50,
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format-stopped": "Nothing playing...",
+    "interval": 1,
+    "player-icons": {
+      "default": "",
+      "mpv": "",
+      "spotify": "",
+      "org": "",
+      "kasts": ""
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "dynamic-order": ["artist", "title", "album"],
+    "ignored-players": ["blanket"]
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+      "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+    }
+  }
+}
