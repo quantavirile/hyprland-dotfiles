@@ -45,6 +45,7 @@ plugins=(
     copybuffer
     dirhistory
     fancy-ctrl-z
+    git-auto-status
 )
 
 # Load oh-my-zsh framework
