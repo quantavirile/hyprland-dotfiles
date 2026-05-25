@@ -17,9 +17,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS HIST_IGNORE_DUPS HIST_SAVE_NO_DUPS HIST_REDUCE_BLANKS HIST_EXPIRE_DUPS_FIRST
 
-for f in "$HOME/.zshrc.d/**/*.zsh"(N); do
-    source "$f"
-done
+# Aliases
+source ~/hyprland-dotfiles/dotfiles/.zshrc.d/aliases.zsh
+
+# Set zsh-syntax-highlighting oh-my-zsh plugin theme
+source ~/hyprland-dotfiles/dotfiles/.zshrc.d/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Oh-my-zsh configuration
 plugins=(
