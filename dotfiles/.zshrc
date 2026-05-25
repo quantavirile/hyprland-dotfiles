@@ -26,7 +26,7 @@ source ~/hyprland-dotfiles/dotfiles/.zshrc.d/zsh-syntax-highlighting/themes/catp
 # Oh-my-zsh configuration
 plugins=(
     git
-    sudo
+    thefuck
     web-search
     archlinux
     fzf-tab
