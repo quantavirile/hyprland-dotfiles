@@ -74,3 +74,7 @@ fi
 
 # eval "$(uv generate-shell-completion zsh)"
 # eval "$(uvx --generate-shell-completion zsh)"
+
+# thefuck alias -> fuck. Corrects errors in previous console command
+# corrects errors in previous console command
+eval $(thefuck --alias)
