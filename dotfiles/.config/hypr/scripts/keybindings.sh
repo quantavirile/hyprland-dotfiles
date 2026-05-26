@@ -15,7 +15,7 @@ config_file=${config_file//source = ~//home/$USER}
 # -----------------------------------------------------
 # Load Launcher
 # -----------------------------------------------------
-launcher=$(cat $HOME/.config/hyprland-dotfiles/launcher)
+launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 
 # -----------------------------------------------------
 # Path to keybindings config file

@@ -3,7 +3,7 @@
 # -----------------------------------------------------
 # Load Launcher
 # -----------------------------------------------------
-launcher=$(cat $HOME/.config/hyprland-dotfiles/launcher)
+launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 
 # Use Walker
 _launch_walker() {
