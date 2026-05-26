@@ -13,6 +13,18 @@
 launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 if [ "$launcher" == "walker" ]; then
   $HOME/.config/walker/launch.sh -m clipboard -N -H
+elif [ "$launcher" == "fuzzel" ]; then
+  case $1 in
+  d)
+    cliphist list | fuzzel --dmenu | cliphist delete
+    ;;
+  w)
+    cliphist wipe
+    ;;
+  *)
+    cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+    ;;
+  esac
 else
   case $1 in
   d)
