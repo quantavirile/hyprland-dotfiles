@@ -13,7 +13,7 @@ source "$HOME/.config/hyprland-dotfiles/scripts/ml4w-notification-handler"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
-sec=$(cat ~/.config/hyprland-dotfiles/wallpaper-automation)
+sec=$(cat ~/.config/hyprland-dotfiles/settings/wallpaper-automation)
 _setWallpaperRandomly() {
   waypaper --random
   echo ":: Next wallpaper in $sec seconds..."

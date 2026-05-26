@@ -13,10 +13,10 @@ SQUARE_WALLPAPER="$CACHE_FOLDER/square_wallpaper.png"
 RASI_FILE="$CACHE_FOLDER/current_wallpaper.rasi"
 
 # Settings
-SETTINGS_BLUR="$HOME/.config/hyprland-dotfiles/blur.sh"
-SETTINGS_WALLPAPER_FOLDER="$HOME/.config/hyprland-dotfiles/wallpaper-folder"
-SETTINGS_WALLPAPER_EFFECT="$HOME/.config/hyprland-dotfiles/wallpaper-effect"
-SETTINGS_TRANSITION_EFFECT=$(cat "$HOME"/.config/hyprland-dotfiles/wallpaper-transition-effect)
+SETTINGS_BLUR="$HOME/.config/hyprland-dotfiles/settings/blur.sh"
+SETTINGS_WALLPAPER_FOLDER="$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder"
+SETTINGS_WALLPAPER_EFFECT="$HOME/.config/hyprland-dotfiles/settings/wallpaper-effect.sh"
+SETTINGS_TRANSITION_EFFECT=$(cat "$HOME/.config/hyprland-dotfiles/settings/wallpaper-transition-effect")
 # Blur
 BLUR="50x30"
 BLUR=$(cat "$SETTINGS_BLUR")
