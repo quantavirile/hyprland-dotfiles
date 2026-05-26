@@ -17,6 +17,8 @@ _launch_rofi() {
 
 if [ "$launcher" == "walker" ]; then
     _launch_walker
+elif [ "$launcher" == "fuzzel" ]; then
+    pkill fuzzel || fuzzel
 else
     _launch_rofi
 fi
