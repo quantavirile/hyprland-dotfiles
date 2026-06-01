@@ -28,8 +28,12 @@
     {
       "type": "command",
       "key": "│ {#33}󱦟 os age  {#keys}|",
-      "keyColor": "magenta",
       "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days",
+    },
+    {
+      "type": "command",
+      "key": "│ {#33}󰚰 updated {#keys}│",
+      "text": "last=$(awk '/starting full system upgrade/{tmp=$1;gsub(/[][]/,\"\",tmp)} /transaction completed/{t=tmp;ok=1} /transaction interrupted/{ok=0} END{if(ok&&t)print t}' /var/log/pacman.log) && echo $(( ($(date +%s) - $(date -d \"$last\" +%s)) / 86400 )) days"
     },
     {
       "key": "│ {#37}󰅐 uptime  {#keys}│",
