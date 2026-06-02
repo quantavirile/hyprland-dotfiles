@@ -2,7 +2,7 @@
 # ML4W Theme Glass
 
 # Set hyprland
-sed -i 's#source = ~/.config/hypr/mocha.conf#source = ~/.config/hypr/colors.conf#' "$HOME"/.config/hypr/hyprland.conf
+echo 'require("conf.themes.glass")' > "$HOME/.config/hypr/conf/theme.lua"
 
 # Set waybar
 echo "/ml4w-glass;/ml4w-glass/default" >$HOME/.config/hyprland-dotfiles/settings/waybar-theme.sh
@@ -24,9 +24,6 @@ echo 'walker' >$HOME/.config/hyprland-dotfiles/settings/launcher
 
 # Set walker theme
 echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
-
-# Set Window Border
-echo 'source = ~/.config/hypr/conf/windows/default.conf' >$HOME/.config/hypr/conf/window.conf
 
 # Set rofi
 echo '* { border-width: 1px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi

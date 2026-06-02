@@ -2,7 +2,7 @@
 # Catppuccin Theme
 
 # Set hyprland
-sed -i 's#source = ~/.config/hypr/colors.conf#source = ~/.config/hypr/mocha.conf#' "$HOME"/.config/hypr/hyprland.conf
+echo 'require("conf.themes.catppuccin")' > "$HOME/.config/hypr/conf/theme.lua"
 
 # Set waybar
 echo "/catppuccin;/catppuccin" >$HOME/.config/hyprland-dotfiles/settings/waybar-theme.sh
@@ -20,9 +20,6 @@ echo 'rofi' >$HOME/.config/hyprland-dotfiles/settings/launcher
 
 # Set walker theme
 echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
-
-# Set Window Border
-echo 'source = ~/.config/hypr/conf/windows/catppuccin.conf' >$HOME/.config/hypr/conf/window.conf
 
 # Set rofi
 # echo '* { border-width: 1px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi
