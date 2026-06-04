@@ -19,6 +19,9 @@ alias diff="nvim -d"
 alias se='sudoedit'
 alias sv='sudoedit'
 
+# Git
+alias lg='lazygit'
+
 # System
 alias c='clear'
 alias q='exit'
