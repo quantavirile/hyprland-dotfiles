@@ -25,6 +25,9 @@ echo 'walker' >$HOME/.config/hyprland-dotfiles/settings/launcher
 # Set walker theme
 echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 
+# Set rofi main config
+echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
+
 # Set rofi configs
 sed -i 's#~/.config/rofi/catppuccin/config-screenshot.rasi#~/.config/rofi/ml4w/config-screenshot.rasi#' $HOME/.config/hypr/scripts/screenshot.sh
 sed -i 's#~/.config/rofi/catppuccin/config-cliphist.rasi#~/.config/rofi/ml4w/config-cliphist.rasi#' $HOME/.config/hyprland-dotfiles/scripts/cliphist.sh
