@@ -24,7 +24,7 @@ fi
 if [ "$launcher" == "walker" ]; then
   selected_theme=$($HOME/.config/walker/launch.sh -d -N -H -p "Search Theme" <<<"$THEME_OPTIONS")
 else
-  selected_theme=$(rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/catppuccin/config.rasi <<<"$THEME_OPTIONS")
+  selected_theme=$(rofi -dmenu -i -markup -replace -config ~/.config/rofi/catppuccin/config-hyprland-themes.rasi <<<"$THEME_OPTIONS")
 fi
 
 # -----------------------------------------------------
