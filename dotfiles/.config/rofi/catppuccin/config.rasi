@@ -10,8 +10,6 @@ configuration {
 	drun-display-format:        "{name}";
   // drun-match-fields:          "name";
 	window-format:              "{w} · {c} · {t}";
-  drun-use-desktop-cache:     true; // Usable for systems with slow hard drives
-
 }
 
 /*****----- Global Properties -----*****/
