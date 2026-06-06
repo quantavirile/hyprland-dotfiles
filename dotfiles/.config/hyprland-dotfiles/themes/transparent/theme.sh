@@ -25,6 +25,10 @@ echo 'glass' > $HOME/.config/hyprland-dotfiles/settings/walker-theme
 # Set Window Border
 echo 'source = ~/.config/hypr/conf/windows/transparent.conf' > $HOME/.config/hypr/conf/window.conf
 
+# Set kitty theme
+sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
+pkill -SIGUSR1 kitty
+
 # Set rofi main config
 echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
 
