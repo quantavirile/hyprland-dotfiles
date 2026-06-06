@@ -195,13 +195,12 @@ no_self_update = true
 
 [git]
 # How many repos to pull at max in parallel
-# max_concurrency = 5
+max_concurrency = 5
 
 # Additional git repositories to pull
-# repos = [
-#     "~/src/*/",
-#     "~/.config/something"
-# ]
+repos = [
+    "~/projects/*/",
+]
 
 # Don't pull the predefined git repos
 # pull_predefined = false
@@ -232,7 +231,7 @@ no_self_update = true
 
 [npm]
 # Use sudo if the NPM directory isn't owned by the current user
-# use_sudo = true
+use_sudo = true
 
 
 [yarn]
