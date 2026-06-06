@@ -38,4 +38,20 @@ sed -i 's#~/.config/rofi/ml4w/config-ocr-lang.rasi#~/.config/rofi/catppuccin/con
 sed -i 's/include colors-matugen.conf/include mocha.conf/' $HOME/.config/kitty/kitty.conf
 pkill -SIGUSR1 kitty
 
+# Set cava
+sed -i "s/^theme = '.*'/theme = 'mocha'/" $HOME/.config/cava/config
+
+# Set GTK
+echo '@import "catppuccin-mocha-mauve.css";' > $HOME/.config/gtk-3.0/gtk.css
+echo '@import url("./catppuccin-mocha-mauve.css");' > $HOME/.config/gtk-4.0/gtk.css
+echo '@import url("./gtk4-vars.css");' >> $HOME/.config/gtk-4.0/gtk.css
+echo '@import url("./catppuccin-mocha-mauve.css");' > $HOME/.config/gtk-4.0/gtk-dark.css
+echo '@import url("./gtk4-vars.css");' >> $HOME/.config/gtk-4.0/gtk-dark.css
+
+# Set btop
+sed -i 's/^color_theme = ".*"/color_theme = "catppuccin_mocha"/' $HOME/.config/btop/btop.conf
+
+# Set rmpc
+sed -i 's/theme: Some("matugen")/theme: Some("catppuccin-mocha")/' $HOME/.config/rmpc/config.ron
+
 echo ":: Theme set to Catppuccin"

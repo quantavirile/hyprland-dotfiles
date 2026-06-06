@@ -44,4 +44,18 @@ echo '* { border-width: 1px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-b
 sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
 pkill -SIGUSR1 kitty
 
+# Set cava
+sed -i "s/^theme = '.*'/theme = 'matugen'/" $HOME/.config/cava/config
+
+# Set GTK
+echo '@import "colors.css";' > $HOME/.config/gtk-3.0/gtk.css
+echo '@import url("./colors.css");' > $HOME/.config/gtk-4.0/gtk.css
+echo '@import url("./colors.css");' > $HOME/.config/gtk-4.0/gtk-dark.css
+
+# Set btop
+sed -i 's/^color_theme = ".*"/color_theme = "matugen"/' $HOME/.config/btop/btop.conf
+
+# Set rmpc
+sed -i 's/theme: Some("catppuccin-mocha")/theme: Some("matugen")/' $HOME/.config/rmpc/config.ron
+
 echo ":: Theme set to Glass"
