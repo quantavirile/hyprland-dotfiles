@@ -28,6 +28,9 @@ echo 'modern' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 # Set Window Border
 echo 'source = ~/.config/hypr/conf/windows/border-2.conf' >$HOME/.config/hypr/conf/window.conf
 
+# Set rofi main config
+echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
+
 # Set rofi
 echo '* { border-width: 2px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi
 
