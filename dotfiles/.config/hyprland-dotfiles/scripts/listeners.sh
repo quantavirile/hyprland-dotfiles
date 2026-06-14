@@ -9,6 +9,7 @@
 declare -A LISTENERS
 LISTENERS["gtk-theme-switcher"]="$HOME/.config/hyprland-dotfiles/scripts/listeners/gtk-theme-switcher.sh"
 LISTENERS["low-bat-notification"]="$HOME/.config/hyprland-dotfiles/scripts/listeners/low-bat-notification.sh"
+LISTENERS["fullscreen-wpauto"]="$HOME/.config/hyprland-dotfiles/scripts/listeners/fullscreen-wpauto.sh"
 # Example for another listener:
 # LISTENERS["another-listener"]="$HOME/.config/listeners/another-listener.sh"
 
