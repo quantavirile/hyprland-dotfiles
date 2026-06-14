@@ -1,34 +1,31 @@
 #!/bin/bash
 
-is_mpv_window_visible() {
-    hyprctl clients 2>/dev/null | grep -qi 'class:.*mpv'
+safeeyes_state="unknown"
+
+disable_safeeyes() {
+    if [ "$safeeyes_state" != "disabled" ]; then
+        safeeyes --disable
+        safeeyes_state="disabled"
+    fi
+}
+
+enable_safeeyes() {
+    if [ "$safeeyes_state" != "enabled" ]; then
+        safeeyes --enable
+        safeeyes_state="enabled"
+    fi
 }
 
 while true; do
     if pgrep -x "freetube" >/dev/null; then
-        safeeyes --disable
         echo "freetube is running"
-        unset ENABLED_AFTER_CLOSE
+        disable_safeeyes
     elif pgrep -x "mpv" >/dev/null; then
-        if is_mpv_window_visible; then
-            safeeyes --disable
-            echo "mpv is running with visible window"
-            unset ENABLED_AFTER_CLOSE
-        else
-            echo "mpv process lingering without window, killing it"
-            pkill -x "mpv" 2>/dev/null
-            if [ -z "${ENABLED_AFTER_CLOSE:-}" ]; then
-                safeeyes --enable
-                echo "safeeyes enabled after cleaning mpv"
-                ENABLED_AFTER_CLOSE=1
-            fi
-        fi
+        echo "mpv is running"
+        disable_safeeyes
     else
-        if [ -z "${ENABLED_AFTER_CLOSE:-}" ]; then
-            safeeyes --enable
-            echo "mpv or freetube is not running"
-            ENABLED_AFTER_CLOSE=1
-        fi
+        echo "mpv or freetube is not running"
+        enable_safeeyes
     fi
     sleep 5
 done
