@@ -1,0 +1,18 @@
+*.log
+deploy.sh
+
+# matugen auto-generated color files
+dotfiles/.config/hypr/colors.conf
+dotfiles/.config/hypr/colors.lua
+dotfiles/.config/waybar/colors.css
+dotfiles/.config/rofi/colors.rasi
+dotfiles/.config/gtk-3.0/colors.css
+dotfiles/.config/gtk-4.0/colors.css
+dotfiles/.config/wlogout/colors.css
+dotfiles/.config/swaync/colors.css
+dotfiles/.config/ohmyposh/colors.json
+dotfiles/.config/cava/themes/matugen
+dotfiles/.config/btop/themes/matugen.theme
+dotfiles/.config/kitty/colors-matugen.conf
+dotfiles/.config/rmpc/themes/matugen.ron
+dotfiles/.config/hyprland-dotfiles/colors/
