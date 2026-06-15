@@ -1,0 +1,48 @@
+.tabbrowser-tab .tab-close-button {
+  display: none !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+  fill: var(--toolbarbutton-icon-fill) !important;
+}
+
+#unified-extensions-view {
+  --uei-button-color: var(--tab-loading-fill) !important;
+}
+
+button:focus-visible,
+toolbarbutton:focus-visible {
+  outline: 2px solid var(--tab-loading-fill) !important;
+  outline-offset: -2px !important;
+}
+
+:root {
+  --panel-border-color: var(--toolbarbutton-icon-fill) !important;
+  --toolbar-field-focus-border-color: var(--toolbarbutton-icon-fill) !important;
+}
+
+#findbar input[type="checkbox"] {
+  accent-color: var(--toolbarbutton-icon-fill) !important;
+}
+
+.findbar-container checkbox {
+  accent-color: var(--toolbarbutton-icon-fill) !important;
+}
+
+#editBMPanel_namePicker:focus,
+#editBMPanel_tagsField:focus {
+  outline: 2px solid var(--toolbarbutton-icon-fill) !important;
+}
+
+#editBMPanel_namePicker::selection,
+#editBMPanel_tagsField::selection {
+  background-color: var(--toolbarbutton-icon-fill) !important;
+  color: var(--lwt-accent-color) !important;
+}
+
+#editBookmarkPanel checkbox,
+#editBMPanel_rows checkbox {
+  accent-color: var(--toolbarbutton-icon-fill) !important;
+}
