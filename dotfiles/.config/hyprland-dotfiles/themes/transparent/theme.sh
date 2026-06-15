@@ -34,6 +34,7 @@ echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
 
 # Set rofi
 echo '* { border-width: 1px; }' > $HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi
+sed -i 's#~/.config/rofi/catppuccin/config-screenshot.rasi#~/.config/rofi/ml4w/config-screenshot.rasi#' $HOME/.config/hyprland-dotfiles/scripts/screenshot.sh
 
 # Set cava
 sed -i "s/^theme = '.*'/theme = 'matugen'/" $HOME/.config/cava/config

@@ -26,7 +26,7 @@ echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 
 # Set Rofi theme
 echo '@import "catppuccin/config.rasi"' >$HOME/.config/rofi/config.rasi
-sed -i 's#~/.config/rofi/ml4w/config-screenshot.rasi#~/.config/rofi/catppuccin/config-screenshot.rasi#' $HOME/.config/hypr/scripts/screenshot.sh
+sed -i 's#~/.config/rofi/ml4w/config-screenshot.rasi#~/.config/rofi/catppuccin/config-screenshot.rasi#' $HOME/.config/hyprland-dotfiles/scripts/screenshot.sh
 sed -i 's#~/.config/rofi/ml4w/config-cliphist.rasi#~/.config/rofi/catppuccin/config-cliphist.rasi#' $HOME/.config/hyprland-dotfiles/scripts/cliphist.sh
 sed -i 's#~/.config/rofi/ml4w/config-keybinds.rasi#~/.config/rofi/catppuccin/config-keybinds.rasi#' $HOME/.config/hypr/scripts/keybindings.sh
 sed -i 's#~/.config/rofi/ml4w/config-hyprland-themes.rasi#~/.config/rofi/catppuccin/config-hyprland-themes.rasi#' $HOME/.config/hyprland-dotfiles/themes/themes.sh

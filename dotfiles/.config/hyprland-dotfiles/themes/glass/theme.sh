@@ -29,7 +29,7 @@ echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
 
 # Set rofi configs
-sed -i 's#~/.config/rofi/catppuccin/config-screenshot.rasi#~/.config/rofi/ml4w/config-screenshot.rasi#' $HOME/.config/hypr/scripts/screenshot.sh
+sed -i 's#~/.config/rofi/catppuccin/config-screenshot.rasi#~/.config/rofi/ml4w/config-screenshot.rasi#' $HOME/.config/hyprland-dotfiles/scripts/screenshot.sh
 sed -i 's#~/.config/rofi/catppuccin/config-cliphist.rasi#~/.config/rofi/ml4w/config-cliphist.rasi#' $HOME/.config/hyprland-dotfiles/scripts/cliphist.sh
 sed -i 's#~/.config/rofi/catppuccin/config-keybinds.rasi#~/.config/rofi/ml4w/config-keybinds.rasi#' $HOME/.config/hypr/scripts/keybindings.sh
 sed -i 's#~/.config/rofi/catppuccin/config-waybar-themes.rasi#~/.config/rofi/ml4w/config-waybar-themes.rasi#' $HOME/.config/waybar/themeswitcher.sh

@@ -139,15 +139,15 @@ hl.bind(
 	hl.dsp.exec_cmd(hyprScripts .. "/toggle-animations.sh"),
 	{ description = "Toggle animations" }
 )
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(hyprScripts .. "/screenshot.sh"), { description = "Take a screenshot" })
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh"), { description = "Take a screenshot" })
 hl.bind(
 	mainMod .. " + ALT + F",
-	hl.dsp.exec_cmd(hyprScripts .. "/screenshot.sh --instant"),
+	hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh --instant"),
 	{ description = "Take an instant full-screen screenshot" }
 )
 hl.bind(
 	mainMod .. " + ALT + S",
-	hl.dsp.exec_cmd(hyprScripts .. "/screenshot.sh --instant-area"),
+	hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh --instant-area"),
 	{ description = "Take an instant area screenshot" }
 )
 hl.bind(
