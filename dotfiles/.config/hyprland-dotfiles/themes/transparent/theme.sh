@@ -50,4 +50,38 @@ sed -i 's/^color_theme = ".*"/color_theme = "matugen"/' $HOME/.config/btop/btop.
 # Set rmpc
 sed -i 's/theme: Some("catppuccin-mocha")/theme: Some("matugen")/' $HOME/.config/rmpc/config.ron
 
+# Set Firefox
+WALLPAPER=$(cat "$HOME/.cache/hyprland-dotfiles/current_wallpaper")
+if [[ -n "$WALLPAPER" && -f "$WALLPAPER" ]]; then
+  matugen image "$WALLPAPER" --source-color-index 0 -m "dark"
+fi
+pywalfox update
+CHROME_DIR="$HOME/.mozilla/firefox/hbjpfw2v.default-release/chrome"
+mkdir -p "$CHROME_DIR"
+cp "$HOME/.config/hyprland-dotfiles/firefox/userChrome.css" "$CHROME_DIR/userChrome.css"
+COLOR6=$(jq -r '.colors.color6 // "#1e1e2e"' "$HOME/.cache/wal/colors.json")
+COLOR15=$(jq -r '.colors.color15 // "#cdd6f4"' "$HOME/.cache/wal/colors.json")
+COLOR3=$(jq -r '.colors.color3 // "#cba6f7"' "$HOME/.cache/wal/colors.json")
+COLOR8=$(jq -r '.colors.color8 // "#181825"' "$HOME/.cache/wal/colors.json")
+COLOR7=$(jq -r '.colors.color7 // "#585b70"' "$HOME/.cache/wal/colors.json")
+cat > "$CHROME_DIR/userContent.css" << EOF
+@-moz-document url-prefix("about:preferences"),
+               url-prefix("about:addons"),
+               url-prefix("about:protections"),
+               url-prefix("about:config") {
+  :root {
+    --background-color-canvas: ${COLOR6} !important;
+    --in-content-page-color: ${COLOR15} !important;
+    --in-content-text-color: ${COLOR15} !important;
+    --link-color: ${COLOR3} !important;
+    --link-color-hover: ${COLOR3} !important;
+    --color-accent-primary: ${COLOR3} !important;
+    --in-content-box-background: ${COLOR8} !important;
+    --in-content-box-border-color: ${COLOR3} !important;
+    --in-content-button-background-hover: ${COLOR7} !important;
+    --in-content-button-background-active: ${COLOR7} !important;
+  }
+}
+EOF
+
 echo ":: Theme set to Transparent"
