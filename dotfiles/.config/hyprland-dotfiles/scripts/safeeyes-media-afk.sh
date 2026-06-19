@@ -1,18 +1,14 @@
 #!/bin/bash
 
-safeeyes_state="unknown"
-
 disable_safeeyes() {
-    if [ "$safeeyes_state" != "disabled" ]; then
+    if ! safeeyes --status 2>/dev/null | grep -qi "disabled"; then
         safeeyes --disable
-        safeeyes_state="disabled"
     fi
 }
 
 enable_safeeyes() {
-    if [ "$safeeyes_state" != "enabled" ]; then
+    if safeeyes --status 2>/dev/null | grep -qi "disabled"; then
         safeeyes --enable
-        safeeyes_state="enabled"
     fi
 }
 
