@@ -16,13 +16,13 @@ if [ "$launcher" == "walker" ]; then
 elif [ "$launcher" == "fuzzel" ]; then
   case $1 in
   d)
-    cliphist list | fuzzel --dmenu | cliphist delete
+    cliphist list | fuzzel --dmenu --config="$HOME/.config/fuzzel/cliphist.ini" | cliphist delete
     ;;
   w)
     cliphist wipe
     ;;
   *)
-    cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+    cliphist list | fuzzel --dmenu --config="$HOME/.config/fuzzel/cliphist.ini" | cliphist decode | wl-copy
     ;;
   esac
 else
