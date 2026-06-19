@@ -22,7 +22,8 @@ launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 # -----------------------------------------------------
 echo "Reading from: $config_file"
 
-keybinds=$(python3 << PYEOF
+keybinds=$(
+  python3 <<PYEOF
 import re, sys, os
 
 path = os.path.expanduser("$config_file")
@@ -80,7 +81,8 @@ for call in calls:
     if m:
         print(key + '\r ' + m.group(1))
 PYEOF
-2>/dev/null)
+  2>/dev/null
+)
 
 sleep 0.2
 
@@ -88,7 +90,7 @@ if [ "$launcher" == "walker" ]; then
   keybinds=$(echo -n "$keybinds" | tr '\r' ':')
   $HOME/.config/walker/launch.sh -d -N -H -p "Search Keybinds" <<<"$keybinds"
 elif [ "$launcher" == "fuzzel" ]; then
-  fuzzel --dmenu -p "Keybinds" <<<"$keybinds"
+  fuzzel --dmenu --config="$HOME/.config/fuzzel/keybinds.ini" -p "Keybinds " <<<"$keybinds"
 else
   rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/catppuccin/config-keybinds.rasi <<<"$keybinds"
 fi
