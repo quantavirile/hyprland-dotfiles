@@ -39,19 +39,26 @@ echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi
 echo '* { border-width: 2px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi
 sed -i 's#~/.config/rofi/catppuccin/config-screenshot.rasi#~/.config/rofi/ml4w/config-screenshot.rasi#' $HOME/.config/hyprland-dotfiles/scripts/screenshot.sh
 
+# Set fuzzel configs
+sed -i 's#catppuccin-mocha/mauve.ini#colors.ini#g' $HOME/.config/fuzzel/*.ini
+echo -e "[border]\nwidth=2\nselection-radius=10" >$HOME/.config/hyprland-dotfiles/settings/fuzzel-border
+
 # Set cava
 sed -i "s/^theme = '.*'/theme = 'matugen'/" $HOME/.config/cava/config
 
 # Set GTK
-echo '@import "colors.css";' > $HOME/.config/gtk-3.0/gtk.css
-echo '@import url("./colors.css");' > $HOME/.config/gtk-4.0/gtk.css
-echo '@import url("./colors.css");' > $HOME/.config/gtk-4.0/gtk-dark.css
+echo '@import "colors.css";' >$HOME/.config/gtk-3.0/gtk.css
+echo '@import url("./colors.css");' >$HOME/.config/gtk-4.0/gtk.css
+echo '@import url("./colors.css");' >$HOME/.config/gtk-4.0/gtk-dark.css
 
 # Set btop
 sed -i 's/^color_theme = ".*"/color_theme = "matugen"/' $HOME/.config/btop/btop.conf
 
 # Set rmpc
 sed -i 's/theme: Some("catppuccin-mocha")/theme: Some("matugen")/' $HOME/.config/rmpc/config.ron
+
+# Set yazi
+echo -e '[flavor]\ndark = "matugen"' >"$HOME/.config/yazi/theme.toml"
 
 # Set Firefox
 WALLPAPER=$(cat "$HOME/.cache/hyprland-dotfiles/current_wallpaper")
@@ -67,7 +74,7 @@ COLOR15=$(jq -r '.colors.color15 // "#cdd6f4"' "$HOME/.cache/wal/colors.json")
 COLOR3=$(jq -r '.colors.color3 // "#cba6f7"' "$HOME/.cache/wal/colors.json")
 COLOR8=$(jq -r '.colors.color8 // "#181825"' "$HOME/.cache/wal/colors.json")
 COLOR7=$(jq -r '.colors.color7 // "#585b70"' "$HOME/.cache/wal/colors.json")
-cat > "$CHROME_DIR/userContent.css" << EOF
+cat >"$CHROME_DIR/userContent.css" <<EOF
 @-moz-document url-prefix("about:preferences"),
                url-prefix("about:addons"),
                url-prefix("about:protections"),
@@ -87,5 +94,9 @@ cat > "$CHROME_DIR/userContent.css" << EOF
 }
 EOF
 
-echo ":: Theme set to Modern"
+# Set wallpaper folder
+echo '~/Pictures/wallpaper' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder
+sed -i 's|^folder = .*|folder = ~/Pictures/wallpaper|' $HOME/.config/waypaper/config.ini
+$HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
 
+echo ":: Theme set to Modern"

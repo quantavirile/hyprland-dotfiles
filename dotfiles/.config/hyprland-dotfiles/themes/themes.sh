@@ -22,7 +22,9 @@ fi
 # -----------------------------------------------------
 
 if [ "$launcher" == "walker" ]; then
-  selected_theme=$($HOME/.config/walker/launch.sh -d -N -H -p "Search Theme" <<<"$THEME_OPTIONS")
+  selected_theme=$($HOME/.config/walker/launch.sh -d -N -H -p "Search Themes" <<<"$THEME_OPTIONS")
+elif [ "$launcher" == "fuzzel" ]; then
+  selected_theme=$(printf '%s\n' "$THEME_OPTIONS" | fuzzel --dmenu --config="$HOME/.config/fuzzel/themes.ini")
 else
   selected_theme=$(rofi -dmenu -i -markup -replace -config ~/.config/rofi/catppuccin/config-hyprland-themes.rasi <<<"$THEME_OPTIONS")
 fi
