@@ -6,31 +6,34 @@
 # /_/   \_\__,_|\__\___/     \_/\_/  |_|
 #
 
-ml4w_cache_folder="$HOME/.cache/hyprland-dotfiles"
+# Configuration
+CACHE_DIR="$HOME/.cache/hyprland-dotfiles"
+interval=$(cat ~/.config/hyprland-dotfiles/settings/wallpaper-automation)
 
 # Notifications
 source "$HOME/.config/hyprland-dotfiles/scripts/ml4w-notification-handler"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
-sec=$(cat ~/.config/hyprland-dotfiles/settings/wallpaper-automation)
 _setWallpaperRandomly() {
-  waypaper --random
-  echo ":: Next wallpaper in $sec seconds..."
-  sleep $sec
+  if [ -f $CACHE_DIR/wallpaper-automation ]; then
+    $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
+    echo ":: Next wallpaper in $interval seconds..."
+  fi
+  sleep $interval
   _setWallpaperRandomly
 }
 
-if [ ! -f $ml4w_cache_folder/wallpaper-automation ]; then
-  touch $ml4w_cache_folder/wallpaper-automation
+if [ ! -f $CACHE_DIR/wallpaper-automation ]; then
+  touch $CACHE_DIR/wallpaper-automation
   echo ":: Start wallpaper automation script"
   notify_user \
     --a "${APP_NAME}" \
     --i "${NOTIFICATION_ICON}" \
-    --m "Wallpaper automation process started.\nWallpaper will be changed every $sec seconds."
+    --m "Wallpaper automation process started.\nWallpaper will be changed every $interval seconds."
   _setWallpaperRandomly
 else
-  rm $ml4w_cache_folder/wallpaper-automation
+  rm $CACHE_DIR/wallpaper-automation
   notify_user \
     --a "${APP_NAME}" \
     --i "${NOTIFICATION_ICON}" \
