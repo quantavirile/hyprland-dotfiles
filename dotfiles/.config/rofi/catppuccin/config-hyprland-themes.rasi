@@ -57,7 +57,7 @@ inputbar {
     border-color:                @mauve;
     background-color:            transparent;
     text-color:                  @text;
-    children:                    [ "textbox-prompt-colon" ];
+    children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
 prompt {
@@ -69,7 +69,7 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
     expand:                      false;
-    str:                         "<b>Hyprland Themes</b>";
+    str:                         "<b>Themes</b>";
     background-color:            inherit;
     text-color:                  inherit;
     markup:                      true;
