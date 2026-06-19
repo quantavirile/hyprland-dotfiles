@@ -8,12 +8,19 @@
 export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.spicetify:$PATH"
-export STARSHIP_CONFIG=~/.config/starship.toml
+export STARSHIP_CONFIG=$HOME/.config/starship.toml
 export FZF_DEFAULT_OPTS_FILE=$HOME/.fzfrc
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
 # History settings
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
+HISTSIZE=20000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS HIST_IGNORE_DUPS HIST_SAVE_NO_DUPS HIST_REDUCE_BLANKS HIST_EXPIRE_DUPS_FIRST
 
@@ -76,5 +83,4 @@ fi
 # eval "$(uvx --generate-shell-completion zsh)"
 
 # thefuck alias -> fuck. Corrects errors in previous console command
-# corrects errors in previous console command
 eval $(thefuck --alias)
