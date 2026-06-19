@@ -20,7 +20,8 @@
 # Configuation
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
-menu_command=$(cat "$HOME/.config/hyprland-dotfiles/settings/launcher")
+current_launcher=~/.config/hyprland-dotfiles/settings/launcher
+menu_command=$(cat "$current_launcher")
 
 # Grimblast env config
 export GRIMBLAST_EDITOR="satty --filename"
@@ -102,7 +103,7 @@ rofi_menu() {
 }
 
 walker_menu() {
-  printf '%s\n' "${menu_opts[@]}" | walker -p "$prompt" -d
+  printf '%s\n' "${menu_opts[@]}" | $HOME/.config/walker/launch.sh -d -N -H -p "$prompt"
 }
 
 define_menu
