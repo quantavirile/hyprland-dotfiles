@@ -32,7 +32,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("cachy-update --tray")
 	hl.exec_cmd("elephant")
 	hl.exec_cmd("kdeconnect-indicator&!")
-	hl.exec_cmd("env GDK_BACKEND=x11 thunderbird")
+	-- hl.exec_cmd("env GDK_BACKEND=x11 thunderbird")
 	-- Libs
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("/usr/lib/kdeconnectd&!")
