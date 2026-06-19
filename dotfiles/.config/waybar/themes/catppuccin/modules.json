@@ -31,7 +31,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hyprland-dotfiles/scripts/check-updates.sh",
-    "interval": 21600, // Check every 6 hours, 1 hour = 3600 seconds
+    "interval": 7200, // Check every 2 hours, 1 hour = 3600 seconds
     "signal": 1,
     "hide-empty-text": true,
     "on-click": "~/.config/hyprland-dotfiles/scripts/topgrade.sh"
