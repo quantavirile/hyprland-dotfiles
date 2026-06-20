@@ -231,7 +231,7 @@ repos = [
 
 [npm]
 # Use sudo if the NPM directory isn't owned by the current user
-use_sudo = true
+# use_sudo = true
 
 
 [yarn]
