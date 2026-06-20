@@ -46,12 +46,17 @@ else
 fi
 
 argc() { echo $#; }
-rofi_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/catppuccin/config-ocr-lang.rasi -i -no-show-icons -p "Select the OCR language"
-}
+
+launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 
 if [ "$(argc $OCR_LANGUAGE_LIST)" -gt 1 ]; then
-    OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | rofi_cmd)
+    if [ "$launcher" == "fuzzel" ]; then
+        OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | fuzzel --dmenu --config="$HOME/.config/fuzzel/ocr-lang.ini")
+    elif [ "$launcher" == "walker" ]; then
+        OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | $HOME/.config/walker/launch.sh -d -N -H -p "Select OCR Language")
+    else
+        OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | rofi -dmenu -replace -config ~/.config/rofi/catppuccin/config-ocr-lang.rasi -i -no-show-icons -p "Select the OCR language")
+    fi
     sleep 0.5 || true
 fi
 
