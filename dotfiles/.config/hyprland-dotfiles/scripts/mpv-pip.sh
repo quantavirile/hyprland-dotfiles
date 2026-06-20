@@ -1,55 +1,77 @@
 #!/bin/bash
 
-# MPV Picture-in-Picture Manager for Hyprland
-# This script toggles mpv windows between normal and PiP mode
-
 set -euo pipefail
 
-# Configuration
-PIP_WIDTH="30%"          # Width as percentage of monitor
-PIP_HEIGHT="30%"         # Height as percentage of monitor
-PIP_POSITION="top-right" # top-left, top-right, bottom-left, bottom-right
+# Target PiP size
+PIP_W=640
+PIP_H=360
 
-# Get active window info
+# Edge padding for bottom positions
+PAD=20
+PIP_POSITION="top-right"
+
+# Limit to active mpv window
 ACTIVE_CLASS=$(hyprctl activewindow -j | jq -r '.class')
 ACTIVE_PID=$(hyprctl activewindow -j | jq -r '.pid')
+ACTIVE_MONITOR=$(hyprctl activewindow -j | jq -r '.monitor')
 
-# Only process mpv windows
 if [[ "$ACTIVE_CLASS" != "mpv" ]]; then
-  echo "Not an mpv window. Exiting."
   exit 1
 fi
 
-# Check if window is already in PiP mode (check for floating state)
-WINDOW_STATE=$(hyprctl clients -j | jq -r ".[] | select(.pid == $ACTIVE_PID) | .floating")
+# Monitor dimensions
+MON_DATA=$(hyprctl monitors -j | jq -r ".[] | select(.id == $ACTIVE_MONITOR) | {width, height}")
+MON_W=$(echo "$MON_DATA" | jq -r '.width')
+MON_H=$(echo "$MON_DATA" | jq -r '.height')
 
-if [[ "$WINDOW_STATE" == "true" ]]; then
-  # Exit PiP mode - restore tiling
-  echo "Exiting PiP mode..."
-  hyprctl dispatch togglefloating "pid:$ACTIVE_PID"
+# Detect Waybar height so PiP clears it on top positions
+WAYBAR_DATA=$(hyprctl layers -j | jq -r '.[].levels."2"[] | select(.namespace == "waybar") | {y, h}')
+WAYBAR_Y=$(echo "$WAYBAR_DATA" | jq -r '.y // empty')
+WAYBAR_H=$(echo "$WAYBAR_DATA" | jq -r '.h // empty')
+if [[ -n "$WAYBAR_Y" && -n "$WAYBAR_H" ]]; then
+  TOP_PAD=$((WAYBAR_Y + WAYBAR_H + 12))
 else
-  # Enter PiP mode - make floating and pinned
-  echo "Entering PiP mode..."
-  hyprctl dispatch togglefloating "pid:$ACTIVE_PID"
-  hyprctl dispatch pin "pid:$ACTIVE_PID"
+  TOP_PAD=$PAD
+fi
 
-  # Apply size and position based on config
-  case "$PIP_POSITION" in
-  top-right)
-    hyprctl dispatch resizewindowpixel "exact $PIP_WIDTH $PIP_HEIGHT,pid:$ACTIVE_PID"
-    hyprctl dispatch movewindowpixel "exact 1330 64,pid:$ACTIVE_PID"
-    ;;
-  top-left)
-    hyprctl dispatch resizewindowpixel "exact $PIP_WIDTH $PIP_HEIGHT,pid:$ACTIVE_PID"
-    hyprctl dispatch movewindowpixel "exact 0 0,pid:$ACTIVE_PID"
-    ;;
-  bottom-right)
-    hyprctl dispatch resizewindowpixel "exact $PIP_WIDTH $PIP_HEIGHT,pid:$ACTIVE_PID"
-    hyprctl dispatch movewindowpixel "exact 100%-$PIP_WIDTH 100%-$PIP_HEIGHT,pid:$ACTIVE_PID"
-    ;;
-  bottom-left)
-    hyprctl dispatch resizewindowpixel "exact $PIP_WIDTH $PIP_HEIGHT,pid:$ACTIVE_PID"
-    hyprctl dispatch movewindowpixel "exact 0 100%-$PIP_HEIGHT,pid:$ACTIVE_PID"
-    ;;
-  esac
+# Compute position from monitor dimensions and padding
+case "$PIP_POSITION" in
+top-left)
+  PIP_X=$PAD
+  PIP_Y=$TOP_PAD
+  ;;
+top-right)
+  PIP_X=$((MON_W - PIP_W - PAD))
+  PIP_Y=$TOP_PAD
+  ;;
+bottom-left)
+  PIP_X=$PAD
+  PIP_Y=$((MON_H - PIP_H - PAD))
+  ;;
+bottom-right)
+  PIP_X=$((MON_W - PIP_W - PAD))
+  PIP_Y=$((MON_H - PIP_H - PAD))
+  ;;
+esac
+
+# Toggle PiP
+W_FLOATING=$(hyprctl clients -j | jq -r ".[] | select(.pid == $ACTIVE_PID) | .floating")
+
+if [[ "$W_FLOATING" == "true" ]]; then
+  # Exit PiP: unfloat back to tiled
+  hyprctl dispatch 'hl.dsp.window.float({})'
+else
+  # Enter PiP: float, resize to target, pin, reposition
+  hyprctl dispatch 'hl.dsp.window.float({})'
+
+  # Read current floating size and compute resize delta
+  WIN_DATA=$(hyprctl clients -j | jq -r ".[] | select(.pid == $ACTIVE_PID) | {size: .size, at: .at}")
+  W_CUR_W=$(echo "$WIN_DATA" | jq -r '.size[0]')
+  W_CUR_H=$(echo "$WIN_DATA" | jq -r '.size[1]')
+  DELTA_W=$((PIP_W - W_CUR_W))
+  DELTA_H=$((PIP_H - W_CUR_H))
+
+  hyprctl dispatch "hl.dsp.window.resize({x=$DELTA_W, y=$DELTA_H})"
+  hyprctl dispatch 'hl.dsp.window.pin({})'
+  hyprctl dispatch "hl.dsp.window.move({x=$PIP_X, y=$PIP_Y})"
 fi
