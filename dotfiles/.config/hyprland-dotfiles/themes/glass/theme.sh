@@ -46,6 +46,7 @@ echo '* { border-width: 1px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-b
 
 # Set kitty theme
 sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
+sed -i 's/^background_opacity.*/background_opacity 0.85/' "$HOME/.config/kitty/kitty.conf"
 pkill -SIGUSR1 kitty
 
 # Set cava

@@ -40,6 +40,7 @@ echo -e "[border]\nwidth=2\nselection-radius=10" >$HOME/.config/hyprland-dotfile
 
 # Set kitty
 sed -i 's/include colors-matugen.conf/include mocha.conf/' $HOME/.config/kitty/kitty.conf
+sed -i 's/^background_opacity.*/background_opacity 1.0/' "$HOME/.config/kitty/kitty.conf"
 pkill -SIGUSR1 kitty
 
 # Set cava

@@ -30,6 +30,7 @@ echo 'source = ~/.config/hypr/conf/windows/border-2.conf' >$HOME/.config/hypr/co
 
 # Set kitty theme
 sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
+sed -i 's/^background_opacity.*/background_opacity 0.85/' "$HOME/.config/kitty/kitty.conf"
 pkill -SIGUSR1 kitty
 
 # Set rofi main config
