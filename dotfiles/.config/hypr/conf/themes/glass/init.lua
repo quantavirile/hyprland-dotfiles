@@ -8,8 +8,8 @@ hl.config({
 		border_size = 1,
 
 		col = {
-			active_border = { colors = { colors.primary, colors.tertiary }, angle = 90 },
-			inactive_border = colors.surface_container_highest,
+			active_border = { colors = { colors.primary, colors.on_primary }, angle = 90 },
+			inactive_border = colors.on_primary,
 		},
 
 		resize_on_border = true,
