@@ -7,18 +7,23 @@ launcher=$(cat $HOME/.config/hyprland-dotfiles/settings/launcher)
 
 # Use Walker
 _launch_walker() {
-    $HOME/.config/walker/launch.sh --height 500
+  $HOME/.config/walker/launch.sh --height 500
 }
 
 # Use Rofi
 _launch_rofi() {
-    pkill rofi || rofi -show drun -replace -i  
+  pkill rofi || rofi -show drun -replace -i
+}
+
+# Use Fuzzel
+_launch_fuzzel() {
+  pkill fuzzel || fuzzel
 }
 
 if [ "$launcher" == "walker" ]; then
-    _launch_walker
+  _launch_walker
 elif [ "$launcher" == "fuzzel" ]; then
-    pkill fuzzel || fuzzel
+  _launch_fuzzel
 else
-    _launch_rofi
+  _launch_rofi
 fi
