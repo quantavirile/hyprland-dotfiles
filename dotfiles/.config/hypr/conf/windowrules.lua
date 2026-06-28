@@ -185,7 +185,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "youtube",
 	match = { title = ".* - YouTube.*" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
@@ -199,61 +199,61 @@ hl.window_rule({
 hl.window_rule({
 	name = "loupe",
 	match = { class = "org.gnome.Loupe" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "mpv",
 	match = { class = "mpv" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "freetube",
 	match = { class = "freetube" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "ente",
 	match = { class = "ente" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "waydroid",
 	match = { class = "Waydroid" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "foliate",
 	match = { class = "com.github.johnfactotum.Foliate" },
-	opacity = 1.0,
+	opacity = "1.0 override 0.85 override",
 })
 
 hl.window_rule({
 	name = "calibre-ebook-viewer",
 	match = { class = "calibre-ebook-viewer" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "imv",
 	match = { class = "imv" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "newsflash",
 	match = { class = "io.gitlab.news_flash.NewsFlash" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
 	name = "onlyoffice",
 	match = { class = "ONLYOFFICE" },
-	opacity = 1.0,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({
@@ -277,7 +277,7 @@ hl.window_rule({
 	opacity = 1.0,
 	float = true,
 	pin = true,
-	size = { 624, 351 },
+	size = { 640, 320 },
 })
 
 hl.window_rule({
@@ -315,4 +315,10 @@ hl.window_rule({
 	match = { class = "^(wayclick_soundpacks_download%.sh)$" },
 	float = true,
 	size = { 580, 810 },
+})
+
+hl.window_rule({
+	name = "superproductivity",
+	match = { class = "superproductivity-bin" },
+	opacity = "1.0 override 0.85 override",
 })
