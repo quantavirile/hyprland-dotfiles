@@ -112,10 +112,11 @@ hl.bind(
 )
 hl.bind(mainMod .. " + ALT + up", hl.dsp.window.swap({ direction = "u" }), { description = "Swap tiled window up" })
 hl.bind(mainMod .. " + ALT + down", hl.dsp.window.swap({ direction = "d" }), { description = "Swap tiled window down" })
-hl.bind("ALT + Tab", function()
-	hl.dispatch(hl.dsp.window.cycle_next())
-	hl.dispatch(hl.dsp.window.bring_to_top())
-end, { description = "Cycle between windows and bring active to top" })
+-- hl.bind("ALT + Tab", function()
+-- 	hl.dispatch(hl.dsp.window.cycle_next())
+-- 	hl.dispatch(hl.dsp.window.bring_to_top())
+-- end, { description = "Cycle between windows and bring active to top" })
+hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"), { description = "Snappy Switcher" })
 hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"), { description = "Move window right in scrolling layout" })
 hl.bind(mainMod .. " + comma", hl.dsp.layout("move -col"), { description = "Move window left in scrolling layout" })
 hl.bind(
@@ -139,7 +140,11 @@ hl.bind(
 	hl.dsp.exec_cmd(hyprScripts .. "/toggle-animations.sh"),
 	{ description = "Toggle animations" }
 )
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh"), { description = "Take a screenshot" })
+hl.bind(
+	mainMod .. " + PRINT",
+	hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh"),
+	{ description = "Take a screenshot" }
+)
 hl.bind(
 	mainMod .. " + ALT + F",
 	hl.dsp.exec_cmd(dotfileScripts .. "/screenshot.sh --instant"),
