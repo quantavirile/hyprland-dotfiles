@@ -32,10 +32,10 @@ configuration {
 @import "~/.config/hyprland-dotfiles/settings/rofi-font.rasi"
 
 /* ---- Load colors ---- */
-@theme "~/.config/rofi/ml4w/colors.rasi"
+@theme "~/.config/rofi/colors.rasi"
 
 /* ---- Load wallpaper ---- */
-@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
+@import "~/.cache/hyprland-dotfiles/current_wallpaper.rasi"
 
 /* ---- Load border width ---- */
 @import "~/.config/hyprland-dotfiles/settings/rofi-border.rasi"
