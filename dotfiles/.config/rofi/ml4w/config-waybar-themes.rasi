@@ -13,7 +13,7 @@
 configuration {
     modi:                       "drun,filebrowser,window,run";
     font:                       "Fira Sans 11";
-    show-icons:                 true;
+    show-icons:                 false;
     icon-theme:                 "Tela-circle-dracula";
     display-drun:                " ";
     display-run:                 " ";
