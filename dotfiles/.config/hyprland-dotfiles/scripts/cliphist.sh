@@ -22,19 +22,19 @@ elif [ "$launcher" == "fuzzel" ]; then
     cliphist wipe
     ;;
   *)
-    cliphist list | fuzzel --dmenu --config="$HOME/.config/fuzzel/cliphist.ini" | cliphist decode | wl-copy
+    cliphist list | fuzzel --dmenu --with-nth 2 --config="$HOME/.config/fuzzel/cliphist.ini" | cliphist decode | wl-copy
     ;;
   esac
 else
   case $1 in
   d)
-    cliphist list | rofi -dmenu -replace -config ~/.config/rofi/catppuccin/config-cliphist.rasi | cliphist delete
+    cliphist list | rofi -dmenu -replace -config ~/.config/rofi/ml4w/config-cliphist.rasi | cliphist delete
     ;;
   w)
     cliphist wipe
     ;;
   *)
-    cliphist list | rofi -dmenu -replace -config ~/.config/rofi/catppuccin/config-cliphist.rasi | cliphist decode | wl-copy
+    cliphist list | rofi -dmenu -display-columns 2 -replace -config ~/.config/rofi/ml4w/config-cliphist.rasi | cliphist decode | wl-copy
     ;;
   esac
 fi
