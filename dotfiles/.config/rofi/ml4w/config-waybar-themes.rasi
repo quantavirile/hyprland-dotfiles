@@ -94,7 +94,7 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "  Waybar Themes";
+    str:                         "Themes";
     padding:                     0.5em 0.2em 0em 0em;
     text-color:                  @on-surface;
     border-radius:               2em 0em 0em 2em;
