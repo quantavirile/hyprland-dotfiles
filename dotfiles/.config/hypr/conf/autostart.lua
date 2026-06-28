@@ -7,7 +7,6 @@
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-local apps = require("conf.applications")
 hl.on("hyprland.start", function()
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("swaync")
@@ -32,6 +31,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("cachy-update --tray")
 	hl.exec_cmd("elephant")
 	hl.exec_cmd("kdeconnect-indicator&!")
+	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("snappy-switcher --daemon")
 	-- hl.exec_cmd("env GDK_BACKEND=x11 thunderbird")
 	-- Libs
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
