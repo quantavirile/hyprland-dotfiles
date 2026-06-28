@@ -70,8 +70,6 @@ zstyle ':omz:plugins:alias-finder' cheaper yes     # prefer shorter (cheaper) al
 source <(fzf --zsh)
 
 # Prompt
-# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
-# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
 eval "$(starship init zsh)"
 
 # Run fastfetch on terminal open
