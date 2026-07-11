@@ -107,3 +107,13 @@ output_path = '~/.config/opencode/themes/matugen.json'
 input_path = '~/.config/matugen/templates/spicetify.ini'
 output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
 post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
+
+[templates.neovim]
+input_path = '~/.config/matugen/templates/template.lua'
+output_path = '~/.config/nvim/generated.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.mpv]
+input_path = '~/.config/matugen/templates/mpv-colors.conf'
+output_path = '~/.config/mpv/themes/matugen.conf'
+post_hook = '~/.config/matugen/post-hook-scripts/mpv-reload.sh'
