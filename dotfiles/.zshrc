@@ -24,9 +24,6 @@ HISTSIZE=20000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS HIST_IGNORE_DUPS HIST_SAVE_NO_DUPS HIST_REDUCE_BLANKS HIST_EXPIRE_DUPS_FIRST
 
-# Aliases
-source ~/hyprland-dotfiles/dotfiles/.zshrc.d/aliases.zsh
-
 # Set zsh-syntax-highlighting oh-my-zsh plugin theme
 source ~/hyprland-dotfiles/dotfiles/.zshrc.d/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
@@ -59,6 +56,9 @@ plugins=(
 
 # Load oh-my-zsh framework
 source $ZSH/oh-my-zsh.sh
+
+# Custom aliases (loaded after oh-my-zsh to take precedence)
+source ~/hyprland-dotfiles/dotfiles/.zshrc.d/aliases.zsh
 
 # alias-finder plugin: suggest aliases when you type a matching command
 zstyle ':omz:plugins:alias-finder' autoload yes   # show without prompting to press enter
