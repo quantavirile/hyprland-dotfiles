@@ -33,6 +33,39 @@ info() { echo -e "${GREEN}[INFO]${NC} $1" >&2; }
 warn() { echo -e "${YELLOW}[WARN]${NC} $1" >&2; }
 error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
+generate_firefox_usercontent() {
+  local colors_json="$1"
+  local label="${2:-Firefox}"
+  local chrome_dir="$HOME/.mozilla/firefox/hbjpfw2v.default-release/chrome"
+  [ ! -d "$HOME/.mozilla/firefox/hbjpfw2v.default-release" ] && return 1
+  mkdir -p "$chrome_dir"
+  local color6=$(jq -r '.colors.color6 // "#1e1e2e"' "$colors_json" 2>/dev/null)
+  local color15=$(jq -r '.colors.color15 // "#cdd6f4"' "$colors_json" 2>/dev/null)
+  local color3=$(jq -r '.colors.color3 // "#cba6f7"' "$colors_json" 2>/dev/null)
+  local color8=$(jq -r '.colors.color8 // "#181825"' "$colors_json" 2>/dev/null)
+  local color7=$(jq -r '.colors.color7 // "#585b70"' "$colors_json" 2>/dev/null)
+  cat >"$chrome_dir/userContent.css" <<EOF
+@-moz-document url-prefix("about:preferences"),
+               url-prefix("about:addons"),
+               url-prefix("about:protections"),
+               url-prefix("about:config") {
+  :root {
+    --background-color-canvas: ${color6} !important;
+    --in-content-page-color: ${color15} !important;
+    --in-content-text-color: ${color15} !important;
+    --link-color: ${color3} !important;
+    --link-color-hover: ${color3} !important;
+    --color-accent-primary: ${color3} !important;
+    --in-content-box-background: ${color8} !important;
+    --in-content-box-border-color: ${color3} !important;
+    --in-content-button-background-hover: ${color7} !important;
+    --in-content-button-background-active: ${color7} !important;
+  }
+}
+EOF
+  info "$label: Firefox userContent.css regenerated"
+}
+
 # ==========================================
 # Functions
 # ==========================================
@@ -244,6 +277,22 @@ info "nwg-dock-hyprland reloaded"
 if type pywalfox >/dev/null 2>&1; then
   pywalfox update
   info "pywalfox updated"
+fi
+
+# Update Firefox userContent.css for about:* pages
+generate_firefox_usercontent "$HOME/.cache/wal/colors.json"
+
+# Re-apply catppuccin colors if catppuccin theme is active
+if grep -q "catppuccin" "$HOME/.config/hypr/conf/theme.lua" 2>/dev/null; then
+  CATPPUCCIN_WAL="$HOME/.config/hyprland-dotfiles/firefox/catppuccin-wal-colors.json"
+  if [ -f "$CATPPUCCIN_WAL" ]; then
+    cp "$CATPPUCCIN_WAL" "$HOME/.cache/wal/colors.json"
+    if type pywalfox >/dev/null 2>&1; then
+      pywalfox update
+      info "catppuccin: pywalfox re-applied"
+    fi
+    generate_firefox_usercontent "$HOME/.cache/wal/colors.json" "catppuccin"
+  fi
 fi
 
 # Update SwayNC
