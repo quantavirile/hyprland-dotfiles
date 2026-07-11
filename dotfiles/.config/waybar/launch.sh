@@ -11,7 +11,8 @@
 # invocation proceeds; all others exit immediately.
 # -----------------------------------------------------
 
-exec 200>/tmp/waybar-launch.lock
+lock_file="$XDG_RUNTIME_DIR/waybar-launch.lock"
+exec 200>$lock_file
 flock -n 200 || exit 0
 
 # -----------------------------------------------------
@@ -26,7 +27,7 @@ sleep 0.5
 # Default theme: /THEMEFOLDER;/VARIATION
 # -----------------------------------------------------
 
-default_theme="/ml4w-modern;/ml4w-modern/default"
+default_theme="/ml4w-glass;/ml4w-glass/default"
 
 # -----------------------------------------------------
 # Remove incompatible themes
@@ -115,4 +116,3 @@ exec 200>&-
 # Kill and restart safeeyes
 pkill safeeyes
 safeeyes
-
