@@ -1,6 +1,15 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = '''
 $directory$git_branch$git_status$rust$python$cmd_duration
 $character'''
+
+# Timeout for starship to scan files (in milliseconds). Default is 30.
+scan_timeout = 5000
+
+# Timeout for commands executed by starship (in milliseconds). Default is 500.
+command_timeout = 5000
 
 palette = 'colors'
 
