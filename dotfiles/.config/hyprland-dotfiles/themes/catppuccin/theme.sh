@@ -60,6 +60,24 @@ sed -i 's/theme: Some("matugen")/theme: Some("catppuccin-mocha")/' $HOME/.config
 # Set yazi
 echo -e '[flavor]\ndark = "mocha"' >"$HOME/.config/yazi/theme.toml"
 
+# Set spicetify
+spicetify config current_theme catppuccin &&
+  spicetify config color_scheme mocha &&
+  spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1 &&
+  spicetify apply
+# sed -i 's/^current_theme = .*/current_theme = catppuccin/' "$HOME/.config/spicetify/config-xpui.ini"
+# sed -i 's/^color_scheme = .*/color_scheme = mocha/' "$HOME/.config/spicetify/config-xpui.ini"
+# spicetify apply
+
+# Set wallpaper folder
+echo '~/Pictures/catppuccin' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder
+sed -i 's|^folder = .*|folder = ~/Pictures/catppuccin|' $HOME/.config/waypaper/config.ini
+$HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
+
+# Set mpv
+sed -i 's|^include=.*|include=~/.config/mpv/themes/catppuccin.conf|' "$HOME/.config/mpv/mpv.conf"
+echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
+
 # Set Firefox
 cp "$HOME/.config/hyprland-dotfiles/firefox/catppuccin-wal-colors.json" "$HOME/.cache/wal/colors.json"
 pywalfox update
@@ -91,9 +109,8 @@ cat >"$CHROME_DIR/userContent.css" <<EOF
 }
 EOF
 
-# Set wallpaper folder
-echo '~/Pictures/catppuccin' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder
-sed -i 's|^folder = .*|folder = ~/Pictures/catppuccin|' $HOME/.config/waypaper/config.ini
-$HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
+# Set neovim
+echo 'vim.cmd("colorscheme base16-catppuccin-mocha")' > "$HOME/.config/nvim/generated.lua"
+pkill -SIGUSR1 nvim
 
 echo ":: Theme set to Catppuccin"
