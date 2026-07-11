@@ -55,5 +55,3 @@ format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 b
 [python]
 format = "[](fg:color8 bg:color4)[${symbol}${version}](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5)( ${virtualenv})](fg:color3 bg:color4)[](fg:color4) "
 symbol = ' '
-# pyenv_version_name = true
-pyenv_prefix = 'venv'
