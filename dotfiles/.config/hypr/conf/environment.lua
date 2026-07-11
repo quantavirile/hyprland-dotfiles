@@ -18,11 +18,7 @@ hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("CLUTTER_BACKEND", "wayland")
 hl.env("SDL_VIDEODRIVER", "wayland")
 
--- Mozilla / Firefox
-hl.env("MOZ_ENABLE_WAYLAND", "1")
-
 -- Electron / Chromium (Ozone)
-hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
 -- Theming Related Variables
