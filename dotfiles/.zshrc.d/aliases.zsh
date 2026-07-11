@@ -13,6 +13,9 @@ alias lt1='eza -ab --tree --level=1 --icons=always'
 alias lt2='eza -ab --tree --level=2 --icons=always'
 alias lt3='eza -ab --tree --level=3 --icons=always'
 
+# Unset LS_COLORS so eza's theme.yml takes full effect
+unset LS_COLORS
+
 # Editors
 alias v='$EDITOR'
 alias diff="nvim -d"
