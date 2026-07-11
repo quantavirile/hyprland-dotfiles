@@ -73,6 +73,9 @@ spicetify config current_theme catppuccin &&
 # Set starship
 sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-catppuccin.toml"|' "$HOME/.zshrc"
 
+# Set opencode
+sed -i 's|"theme": ".*"|"theme": "catppuccin"|' "$HOME/.config/opencode/tui.json"
+
 # Set wallpaper folder
 echo '~/Pictures/catppuccin' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder
 sed -i 's|^folder = .*|folder = ~/Pictures/catppuccin|' $HOME/.config/waypaper/config.ini

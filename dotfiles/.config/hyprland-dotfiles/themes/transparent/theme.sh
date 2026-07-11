@@ -67,6 +67,9 @@ spicetify config current_theme Sleek &&
 # Set starship
 sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-matugen.toml"|' "$HOME/.zshrc"
 
+# Set opencode
+sed -i 's|"theme": ".*"|"theme": "matugen"|' "$HOME/.config/opencode/tui.json"
+
 # Set mpv
 sed -i 's|^include=.*|include=~/.config/mpv/themes/matugen.conf|' "$HOME/.config/mpv/mpv.conf"
 echo '{"command": ["load-config-file", "~/.config/mpv/themes/matugen.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
