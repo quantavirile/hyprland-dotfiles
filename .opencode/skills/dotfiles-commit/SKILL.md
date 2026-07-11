@@ -99,6 +99,7 @@ Changes to them are automatic, not manual — skip them when presenting tracked 
 - `dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml`
 - `dotfiles/.config/starship/starship-matugen.toml`
 - `dotfiles/.config/mpv/themes/matugen.conf`
+- `dotfiles/.config/nvim/generated.lua`
 
 These files are modified by theme scripts (side effects of theme switching), not manually:
 
@@ -137,6 +138,7 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml' \
   ':(exclude)dotfiles/.config/starship/starship-matugen.toml' \
   ':(exclude)dotfiles/.config/mpv/themes/matugen.conf' \
+  ':(exclude)dotfiles/.config/nvim/generated.lua' \
   ':(exclude)dotfiles/.config/gtk-3.0/gtk.css' \
   ':(exclude)dotfiles/.config/gtk-3.0/settings.ini' \
   ':(exclude)dotfiles/.config/gtk-4.0/gtk.css' \
