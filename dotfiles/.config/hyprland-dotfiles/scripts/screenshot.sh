@@ -97,6 +97,7 @@ fuzzel_menu() {
 rofi_menu() {
   printf '%s\n' "${menu_opts[@]}" | rofi \
     -dmenu \
+    -replace \
     -config ~/.config/rofi/catppuccin/config-screenshot.rasi \
     -p "$prompt" \
     -markup-rows
