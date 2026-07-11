@@ -1,2 +1,4 @@
 *.log
 deploy.sh
+opencode-notifier-state.json
+
