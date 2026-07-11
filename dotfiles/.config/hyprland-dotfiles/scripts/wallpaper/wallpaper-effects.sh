@@ -16,7 +16,7 @@ ml4w_cache_folder="$HOME/.cache/hyprland-dotfiles"
 # Get current wallpaper
 cache_file="$ml4w_cache_folder/current_wallpaper"
 
-if [ $1 == "reload" ]; then
+if [[ $1 == "reload" ]]; then
   # Releod wallpaper with current effect
   waypaper --wallpaper $(cat $cache_file)
 else
@@ -26,13 +26,13 @@ else
   # Open rofi
   choice=$(echo -e "$options" | rofi -dmenu -replace -config ~/.config/rofi/config-themes.rasi -i -no-show-icons -l 5 -width 30)
   if [ ! -z $choice ]; then
-    echo "$choice" >~/.config/hyprland-dotfiles/wallpaper-effect.sh
+    echo "$choice" >~/.config/hyprland-dotfiles/settings/wallpaper-effect.sh
 
     notify_user \
       --a "${APP_NAME}" \
       --i "${NOTIFICATION_ICON}" \
       --s "Wallpaper" \
-      --m "Changing Wallpaper Effect to " "$choice."
+      --m "Changing Wallpaper Effect to $choice."
 
     waypaper --wallpaper $(cat $cache_file)
   fi
