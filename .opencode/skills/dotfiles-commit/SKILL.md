@@ -111,6 +111,7 @@ These files are modified by theme scripts (side effects of theme switching), not
 - `dotfiles/.config/yazi/theme.toml`
 - `dotfiles/.config/hypr/scripts/keybindings.sh`
 - `dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border`
+- `dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh`
 
 When checking changes, filter these out:
 
@@ -141,7 +142,8 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.gtkrc-2.0' \
   ':(exclude)dotfiles/.config/yazi/theme.toml' \
   ':(exclude)dotfiles/.config/hypr/scripts/keybindings.sh' \
-  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border'
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh'
 ```
 
 Do not suggest staging or committing these files unless the user explicitly asks.
