@@ -70,6 +70,9 @@ spicetify config current_theme catppuccin &&
 # sed -i 's/^color_scheme = .*/color_scheme = mocha/' "$HOME/.config/spicetify/config-xpui.ini"
 # spicetify apply
 
+# Set starship
+sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-catppuccin.toml"|' "$HOME/.zshrc"
+
 # Set wallpaper folder
 echo '~/Pictures/catppuccin' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-folder
 sed -i 's|^folder = .*|folder = ~/Pictures/catppuccin|' $HOME/.config/waypaper/config.ini
