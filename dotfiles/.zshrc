@@ -8,8 +8,10 @@
 export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.spicetify:$PATH"
-export STARSHIP_CONFIG=$HOME/.config/starship.toml
-export FZF_DEFAULT_OPTS_FILE=$HOME/.fzfrc
+export STARSHIP_CONFIG="$HOME/.config/starship/starship-matugen.toml"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS_FILE="$HOME/.fzfrc"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
