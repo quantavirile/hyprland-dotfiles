@@ -59,6 +59,7 @@ sed -i 's/theme: Some("catppuccin-mocha")/theme: Some("matugen")/' $HOME/.config
 
 # Set yazi
 echo -e '[flavor]\ndark = "matugen"' >"$HOME/.config/yazi/theme.toml"
+sed -i 's|config_file = ".*"|config_file = "~/.config/starship/starship-matugen.toml"|' "$HOME/.config/yazi/init.lua"
 
 # Set spicetify
 spicetify config current_theme Sleek &&
