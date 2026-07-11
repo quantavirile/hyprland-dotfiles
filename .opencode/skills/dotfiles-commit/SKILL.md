@@ -98,6 +98,7 @@ Changes to them are automatic, not manual — skip them when presenting tracked 
 - `dotfiles/.config/fuzzel/colors.ini`
 - `dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml`
 - `dotfiles/.config/starship/starship-matugen.toml`
+- `dotfiles/.config/mpv/themes/matugen.conf`
 
 These files are modified by theme scripts (side effects of theme switching), not manually:
 
@@ -111,7 +112,9 @@ These files are modified by theme scripts (side effects of theme switching), not
 - `dotfiles/.config/yazi/theme.toml`
 - `dotfiles/.config/hypr/scripts/keybindings.sh`
 - `dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border`
+
 - `dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh`
+- `dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder`
 
 When checking changes, filter these out:
 
@@ -133,6 +136,7 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/fuzzel/colors.ini' \
   ':(exclude)dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml' \
   ':(exclude)dotfiles/.config/starship/starship-matugen.toml' \
+  ':(exclude)dotfiles/.config/mpv/themes/matugen.conf' \
   ':(exclude)dotfiles/.config/gtk-3.0/gtk.css' \
   ':(exclude)dotfiles/.config/gtk-3.0/settings.ini' \
   ':(exclude)dotfiles/.config/gtk-4.0/gtk.css' \
@@ -143,7 +147,8 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/yazi/theme.toml' \
   ':(exclude)dotfiles/.config/hypr/scripts/keybindings.sh' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border' \
-  ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh'
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder'
 ```
 
 Do not suggest staging or committing these files unless the user explicitly asks.
