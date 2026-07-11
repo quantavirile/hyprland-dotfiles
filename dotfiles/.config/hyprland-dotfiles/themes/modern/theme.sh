@@ -50,7 +50,6 @@ sed -i "s/^theme = '.*'/theme = 'matugen'/" $HOME/.config/cava/config
 # Set GTK
 echo '@import "colors.css";' >$HOME/.config/gtk-3.0/gtk.css
 echo '@import url("./colors.css");' >$HOME/.config/gtk-4.0/gtk.css
-echo '@import url("./colors.css");' >$HOME/.config/gtk-4.0/gtk-dark.css
 
 # Set btop
 sed -i 's/^color_theme = ".*"/color_theme = "matugen"/' $HOME/.config/btop/btop.conf

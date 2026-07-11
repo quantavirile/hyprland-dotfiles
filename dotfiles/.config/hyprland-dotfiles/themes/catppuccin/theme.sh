@@ -50,8 +50,6 @@ sed -i "s/^theme = '.*'/theme = 'mocha'/" $HOME/.config/cava/config
 echo '@import "catppuccin-mocha-mauve.css";' >$HOME/.config/gtk-3.0/gtk.css
 echo '@import url("./catppuccin-mocha-mauve.css");' >$HOME/.config/gtk-4.0/gtk.css
 echo '@import url("./gtk4-vars.css");' >>$HOME/.config/gtk-4.0/gtk.css
-echo '@import url("./catppuccin-mocha-mauve.css");' >$HOME/.config/gtk-4.0/gtk-dark.css
-echo '@import url("./gtk4-vars.css");' >>$HOME/.config/gtk-4.0/gtk-dark.css
 
 # Set btop
 sed -i 's/^color_theme = ".*"/color_theme = "catppuccin_mocha"/' $HOME/.config/btop/btop.conf
