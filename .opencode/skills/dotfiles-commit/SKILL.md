@@ -116,6 +116,7 @@ These files are modified by theme scripts (side effects of theme switching), not
 
 - `dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh`
 - `dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder`
+- `dotfiles/.config/hyprland-dotfiles/settings/wallpaper-effect.sh`
 
 When checking changes, filter these out:
 
@@ -150,7 +151,8 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/hypr/scripts/keybindings.sh' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh' \
-  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder'
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-effect.sh'
 ```
 
 Do not suggest staging or committing these files unless the user explicitly asks.
