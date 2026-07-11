@@ -1,9 +1,14 @@
+-- Cross-instance yank ability,
+require("session"):setup({
+	sync_yanked = true,
+})
+
 require("full-border"):setup()
 
 require("recycle-bin"):setup()
 
 require("starship"):setup({
-	config_file = "~/.config/starship.toml",
+	config_file = "~/.config/starship/starship-catppuccin.toml",
 })
 
 -- Always show device selection
