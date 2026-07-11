@@ -6,6 +6,7 @@ EFFECT=""
 NOTIFICATIONS=false
 SKIP=false
 CACHE_FOLDER="$HOME/.cache/hyprland-dotfiles"
+EFFECTS_CACHE="$CACHE_FOLDER/effects"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="/usr/share/hypr/wall0.png"
 BLURRED_WALLPAPER="$CACHE_FOLDER/blurred_wallpaper.png"
@@ -181,14 +182,16 @@ if [ -f "$SETTINGS_WALLPAPER_EFFECT" ]; then
   EFFECT=$(cat "$SETTINGS_WALLPAPER_EFFECT")
   if [ ! "$EFFECT" == "off" ]; then
     info "Applying Wallpaper Effect $EFFECT"
-    # Check if processed image already exists
-    if [ -f "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")" ]; then
-      IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+    mkdir -p "$EFFECTS_CACHE"
+    EFFECT_CACHED="$EFFECTS_CACHE/$EFFECT-$(basename "$IMAGE_PATH")"
+    if [ -f "$EFFECT_CACHED" ]; then
+      IMAGE_PATH="$EFFECT_CACHED"
+      info "Using cached processed wallpaper"
     else
-      cp "$IMAGE_PATH" "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
-      IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+      cp "$IMAGE_PATH" "$EFFECT_CACHED"
+      IMAGE_PATH="$EFFECT_CACHED"
+      source "$HOME/.config/hypr/effects/wallpaper/$EFFECT"
     fi
-    source "$HOME/.config/hypr/effects/wallpaper/$EFFECT"
   fi
 fi
 
