@@ -1,14 +1,13 @@
 {
     // General Settings
     "layer": "top",
-    "margin-top": 4,
+    "margin-top": 0,
     "margin-bottom": 0,
-    "margin-left": 4,
-    "margin-right": 4,
+    "margin-left": 0,
+    "margin-right": 0,
     "spacing": 0,
     // Load Modules
     "include": [
-        // "~/.config/hyprland-dotfiles/settings/waybar-quicklinks.json",
         "~/.config/waybar/modules.json"
     ],
     // Modules Left
