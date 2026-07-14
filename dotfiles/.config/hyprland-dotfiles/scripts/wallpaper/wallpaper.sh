@@ -291,9 +291,10 @@ if grep -q "catppuccin" "$HOME/.config/hypr/conf/theme.lua" 2>/dev/null; then
       pywalfox update
       info "catppuccin: pywalfox re-applied"
     fi
-    generate_firefox_usercontent "$HOME/.cache/wal/colors.json" "catppuccin"
+      generate_firefox_usercontent "$HOME/.cache/wal/colors.json" "catppuccin"
+    fi
+    echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
   fi
-fi
 
 # Update SwayNC
 sleep 0.1
