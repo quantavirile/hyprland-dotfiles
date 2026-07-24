@@ -85,4 +85,3 @@ mkdir -p "$CHROME_DIR"
 cp "$HOME/.config/hyprland-dotfiles/firefox/userChrome.css" "$CHROME_DIR/userChrome.css"
 
 echo ":: Theme set to Transparent"
-

@@ -114,7 +114,7 @@ cat >"$CHROME_DIR/userContent.css" <<EOF
 EOF
 
 # Set neovim
-echo 'vim.cmd("colorscheme base16-catppuccin-mocha")' > "$HOME/.config/nvim/generated.lua"
+echo 'vim.cmd("colorscheme base16-catppuccin-mocha")' >"$HOME/.config/nvim/generated.lua"
 pkill -SIGUSR1 nvim
 
 echo ":: Theme set to Catppuccin"
