@@ -62,13 +62,10 @@ echo -e '[flavor]\ndark = "mocha"' >"$HOME/.config/yazi/theme.toml"
 sed -i 's|config_file = ".*"|config_file = "~/.config/starship/starship-catppuccin.toml"|' "$HOME/.config/yazi/init.lua"
 
 # Set spicetify
-spicetify config current_theme catppuccin &&
-  spicetify config color_scheme mocha &&
-  spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1 &&
-  spicetify apply
-# sed -i 's/^current_theme = .*/current_theme = catppuccin/' "$HOME/.config/spicetify/config-xpui.ini"
-# sed -i 's/^color_scheme = .*/color_scheme = mocha/' "$HOME/.config/spicetify/config-xpui.ini"
-# spicetify apply
+$HOME/.spicetify/spicetify config current_theme catppuccin
+$HOME/.spicetify/spicetify config color_scheme mocha
+$HOME/.spicetify/spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
+$HOME/.spicetify/spicetify apply
 
 # Set starship
 sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-catppuccin.toml"|' "$HOME/.zshrc"

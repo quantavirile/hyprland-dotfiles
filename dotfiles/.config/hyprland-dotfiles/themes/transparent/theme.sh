@@ -59,10 +59,10 @@ echo -e '[flavor]\ndark = "matugen"' >"$HOME/.config/yazi/theme.toml"
 sed -i 's|config_file = ".*"|config_file = "~/.config/starship/starship-matugen.toml"|' "$HOME/.config/yazi/init.lua"
 
 # Set spicetify
-spicetify config current_theme Sleek &&
-  spicetify config color_scheme matugen &&
-  spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1 &&
-  spicetify apply
+$HOME/.spicetify/spicetify config current_theme Sleek
+$HOME/.spicetify/spicetify config color_scheme matugen
+$HOME/.spicetify/spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
+$HOME/.spicetify/spicetify apply
 
 # Set starship
 sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-matugen.toml"|' "$HOME/.zshrc"
