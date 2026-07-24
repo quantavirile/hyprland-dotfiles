@@ -117,6 +117,28 @@ These files are modified by theme scripts (side effects of theme switching), not
 - `dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh`
 - `dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder`
 - `dotfiles/.config/hyprland-dotfiles/settings/wallpaper-effect.sh`
+- `dotfiles/.config/hyprland-dotfiles/themes/themes.sh`
+- `dotfiles/.config/btop/btop.conf`
+- `dotfiles/.config/cava/config`
+- `dotfiles/.config/fuzzel/cliphist.ini`
+- `dotfiles/.config/fuzzel/fuzzel.ini`
+- `dotfiles/.config/fuzzel/keybinds.ini`
+- `dotfiles/.config/fuzzel/launchers.ini`
+- `dotfiles/.config/fuzzel/ocr-lang.ini`
+- `dotfiles/.config/fuzzel/screenshot.ini`
+- `dotfiles/.config/fuzzel/themes.ini`
+- `dotfiles/.config/hypr/conf/theme.lua`
+- `dotfiles/.config/hypr/scripts/text-extractor.sh`
+- `dotfiles/.config/hyprland-dotfiles/scripts/launcher-switcher.sh`
+- `dotfiles/.config/hyprland-dotfiles/scripts/screenshot.sh`
+- `dotfiles/.config/hyprland-dotfiles/settings/launcher`
+- `dotfiles/.config/hyprland-dotfiles/settings/waybar-theme.sh`
+- `dotfiles/.config/mpv/mpv.conf`
+- `dotfiles/.config/rofi/config.rasi`
+- `dotfiles/.config/swaync/style.css`
+- `dotfiles/.config/waybar/themeswitcher.sh`
+- `dotfiles/.config/wlogout/style.css`
+- `dotfiles/.config/yazi/init.lua`
 
 When checking changes, filter these out:
 
@@ -152,7 +174,29 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/fuzzel-border' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/cliphist.sh' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-folder' \
-  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-effect.sh'
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/wallpaper-effect.sh' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/themes/themes.sh' \
+  ':(exclude)dotfiles/.config/btop/btop.conf' \
+  ':(exclude)dotfiles/.config/cava/config' \
+  ':(exclude)dotfiles/.config/fuzzel/cliphist.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/fuzzel.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/keybinds.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/launchers.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/ocr-lang.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/screenshot.ini' \
+  ':(exclude)dotfiles/.config/fuzzel/themes.ini' \
+  ':(exclude)dotfiles/.config/hypr/conf/theme.lua' \
+  ':(exclude)dotfiles/.config/hypr/scripts/text-extractor.sh' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/launcher-switcher.sh' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/scripts/screenshot.sh' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/launcher' \
+  ':(exclude)dotfiles/.config/hyprland-dotfiles/settings/waybar-theme.sh' \
+  ':(exclude)dotfiles/.config/mpv/mpv.conf' \
+  ':(exclude)dotfiles/.config/rofi/config.rasi' \
+  ':(exclude)dotfiles/.config/swaync/style.css' \
+  ':(exclude)dotfiles/.config/waybar/themeswitcher.sh' \
+  ':(exclude)dotfiles/.config/wlogout/style.css' \
+  ':(exclude)dotfiles/.config/yazi/init.lua'
 ```
 
 Do not suggest staging or committing these files unless the user explicitly asks.
