@@ -92,7 +92,7 @@ Changes to them are automatic, not manual — skip them when presenting tracked 
 - `dotfiles/.config/swaync/colors.css`
 - `dotfiles/.config/cava/themes/matugen`
 - `dotfiles/.config/btop/themes/matugen.theme`
-- `dotfiles/.config/kitty/colors-matugen.conf`
+- `dotfiles/.config/kitty/themes/Matugen.conf`
 - `dotfiles/.config/rmpc/themes/matugen.ron`
 - `dotfiles/.config/hyprland-dotfiles/colors/`
 - `dotfiles/.config/fuzzel/colors.ini`
@@ -154,7 +154,7 @@ git diff --stat -- . \
   ':(exclude)dotfiles/.config/swaync/colors.css' \
   ':(exclude)dotfiles/.config/cava/themes/matugen' \
   ':(exclude)dotfiles/.config/btop/themes/matugen.theme' \
-  ':(exclude)dotfiles/.config/kitty/colors-matugen.conf' \
+  ':(exclude)dotfiles/.config/kitty/themes/Matugen.conf' \
   ':(exclude)dotfiles/.config/rmpc/themes/matugen.ron' \
   ':(exclude)dotfiles/.config/hyprland-dotfiles/colors/' \
   ':(exclude)dotfiles/.config/fuzzel/colors.ini' \

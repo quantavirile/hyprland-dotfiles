@@ -26,7 +26,7 @@ echo 'glass' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 echo 'source = ~/.config/hypr/conf/windows/transparent.conf' >$HOME/.config/hypr/conf/window.conf
 
 # Set kitty theme
-sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
+sed -i 's/include themes\/mocha.conf/include themes\/Matugen.conf/' $HOME/.config/kitty/kitty.conf
 sed -i 's/^background_opacity.*/background_opacity 0.85/' "$HOME/.config/kitty/kitty.conf"
 pkill -SIGUSR1 kitty
 

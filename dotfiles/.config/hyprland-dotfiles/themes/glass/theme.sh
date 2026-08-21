@@ -45,7 +45,7 @@ echo -e "[border]\nwidth=1\nselection-radius=10" >$HOME/.config/hyprland-dotfile
 echo '* { border-width: 1px; }' >$HOME/.config/hyprland-dotfiles/settings/rofi-border.rasi
 
 # Set kitty theme
-sed -i 's/include mocha.conf/include colors-matugen.conf/' $HOME/.config/kitty/kitty.conf
+sed -i 's/include themes\/mocha.conf/include themes\/Matugen.conf/' $HOME/.config/kitty/kitty.conf
 sed -i 's/^background_opacity.*/background_opacity 0.85/' "$HOME/.config/kitty/kitty.conf"
 pkill -SIGUSR1 kitty
 
