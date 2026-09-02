@@ -76,6 +76,7 @@ output_path = '~/.config/hyprland-dotfiles/colors/onsurface'
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-theme.toml'
 output_path = '~/.config/yazi/flavors/matugen.yazi/flavor.toml'
+post_hook = '~/.config/matugen/post-hook-scripts/yazi-reload.sh || true'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
