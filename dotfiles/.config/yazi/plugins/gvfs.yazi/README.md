@@ -251,7 +251,18 @@ prepend_keymap = [
 
 It's highly recommended to add these lines to your `~/.config/yazi/yazi.toml`,  
 because GVFS is slow that can make yazi freeze when it preloads or previews a large number of files.  
-Especially when you use `Google-drive` or `One-drive`.
+Especially when you use `Google-drive` or `One-drive`. Also please read this before adding these lines  
+to your `yazi.toml`:
+
+- https://yazi-rs.github.io/docs/configuration/overview#mixing
+- https://yazi-rs.github.io/docs/configuration/yazi#plugin
+
+> [!NOTE]
+> If you already have `preloaders` and `previewers` in your `yazi.toml`,
+> you can add all of `url...` directly to `preloaders` and `previewers`
+> instead of copy the whole `prepend_preloaders` and `prepend_previewers` to your `yazi.toml`.
+
+For example: https://github.com/boydaihungst/.config/blob/34fed94fb65230c550b9153d2fedf0cadc619be2/yazi/yazi.toml#L230-L338
 
 - Replace `1000` with your real user id (run `id -u` to get user id).
 - Replace `USER_NAME` with your real user name (run `whoami` to get username).
@@ -261,11 +272,16 @@ Especially when you use `Google-drive` or `One-drive`.
 prepend_preloaders = [
   # Do not preload files in mounted locations:
   # Environment variable won't work here.
+
   # Using absolute path instead.
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
+  # Or match any user id
+  { url = "/run/user/*/gvfs/**/*", run = "noop" },
 
   # For mounted hard disk/drive
   { url = "/run/media/USER_NAME/**/*", run = "noop" },
+  # Or match any username
+  { url = "/run/media/*/**/*", run = "noop" },
 
   # You can also use glob pattern to match paths
   { url = "/run/user/*/gvfs/google-drive:host=gmail.com,user=*/**/*", run = "noop", prio = "high" },
@@ -273,8 +289,10 @@ prepend_preloaders = [
 
 ]
 prepend_previewers = [
-  # Allow to preview folder.
-  { url = "*/", run = "folder" },
+  # Allow to preview folder by default.
+  # https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/yazi-default.toml#L153
+  { url = "*/", run = "folder" }, # use this if you use yazi version <= 26.8.15
+  { url = "folder/*", run = "folder" }, # use this if you use yazi version > 26.8.15
 
   # Do not previewing files in mounted locations.
   # Uncomment the line below to allow previewing text files.
@@ -282,9 +300,13 @@ prepend_previewers = [
 
   # Using absolute path.
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
+  # Or match any user id
+  { url = "/run/user/*/gvfs/**/*", run = "noop" },
 
   # For mounted hard disk/drive.
   { url = "/run/media/USER_NAME/**/*", run = "noop" },
+  # Or match any username
+  { url = "/run/media/*/**/*", run = "noop" },
 
   # You can also use glob pattern to match paths
   { url = "/run/user/*/gvfs/google-drive:host=gmail.com,user=*/**/*", run = "noop", prio = "high" },
