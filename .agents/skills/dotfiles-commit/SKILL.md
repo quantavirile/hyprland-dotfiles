@@ -46,7 +46,7 @@ For batch changes across multiple files, mention features concisely without "to 
 - **Never `git add .`** — stages auto-generated files and unintended changes.
 - **Deleted files** — stage with `git rm <file>`.
 - **Renamed files** — use `git mv <old> <new>` (stages both sides).
-- **Untracked files** — `git status` lists them; stage separately after tracked workflow.
+- **Untracked files** — `git status` lists them; requires confirmation — ask `Stage <explicit path> with git add <path>? [y/n]` before running `git add <explicit path>` (path may be file or dir, e.g. `dotfiles/.config/opencode/` recursively adds non-ignored files; never `git add .`).
 - **If unsure about grouping** — ask the user before staging.
 
 ## Workflow Checklist
