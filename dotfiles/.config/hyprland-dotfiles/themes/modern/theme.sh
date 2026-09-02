@@ -29,9 +29,8 @@ echo 'modern' >$HOME/.config/hyprland-dotfiles/settings/walker-theme
 echo 'source = ~/.config/hypr/conf/windows/border-2.conf' >$HOME/.config/hypr/conf/window.conf
 
 # Set kitty theme
-sed -i 's/include themes\/mocha.conf/include themes\/Matugen.conf/' $HOME/.config/kitty/kitty.conf
+kitty +kitten themes --reload-in=all Matugen
 sed -i 's/^background_opacity.*/background_opacity 0.85/' "$HOME/.config/kitty/kitty.conf"
-pkill -SIGUSR1 kitty
 
 # Set rofi main config
 echo '@import "ml4w/config.rasi"' >$HOME/.config/rofi/config.rasi

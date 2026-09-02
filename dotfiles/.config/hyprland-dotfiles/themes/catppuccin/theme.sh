@@ -39,9 +39,8 @@ sed -i 's#colors.ini#catppuccin-mocha/mauve.ini#g' $HOME/.config/fuzzel/*.ini
 echo -e "[border]\nwidth=2\nselection-radius=10" >$HOME/.config/hyprland-dotfiles/settings/fuzzel-border
 
 # Set kitty
-sed -i 's/include themes\/Matugen.conf/include themes\/mocha.conf/' $HOME/.config/kitty/kitty.conf
+kitty +kitten themes --reload-in=all Catppuccin-Mocha
 sed -i 's/^background_opacity.*/background_opacity 1.0/' "$HOME/.config/kitty/kitty.conf"
-pkill -SIGUSR1 kitty
 
 # Set cava
 sed -i "s/^theme = '.*'/theme = 'mocha'/" $HOME/.config/cava/config
