@@ -27,6 +27,7 @@ EXCLUDES=(
   ':(exclude)dotfiles/.config/starship/starship-matugen.toml'
   ':(exclude)dotfiles/.config/mpv/themes/matugen.conf'
   ':(exclude)dotfiles/.config/nvim/generated.lua'
+  ':(exclude)dotfiles/.config/opencode/themes/matugen.json'
   ':(exclude)dotfiles/.config/gtk-3.0/gtk.css'
   ':(exclude)dotfiles/.config/gtk-3.0/settings.ini'
   ':(exclude)dotfiles/.config/gtk-4.0/gtk.css'

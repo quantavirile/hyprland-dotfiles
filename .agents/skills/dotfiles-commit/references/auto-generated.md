@@ -22,6 +22,7 @@ These files are written by matugen (color/template engine) or its post-hooks. Ch
 - `dotfiles/.config/starship/starship-matugen.toml`
 - `dotfiles/.config/mpv/themes/matugen.conf`
 - `dotfiles/.config/nvim/generated.lua`
+- `dotfiles/.config/opencode/themes/matugen.json`
 
 ## Theme-script modified (side effects of theme switching)
 
