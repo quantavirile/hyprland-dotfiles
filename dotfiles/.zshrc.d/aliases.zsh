@@ -45,8 +45,8 @@ alias bls='bin list'
 alias brm='bin remove'
 
 # Downloading
-alias ytdl='yt-dlp -S vcodec:h264,res,acodec:m4a --remote-components ejs:github --concurrent-fragments 5 --download-archive /home/joy/.config/yt-dlp/archive.txt --sponsorblock-remove all -o "%(title)s.%(ext)s"'
-# alias ydl='yt-dlp -f 299+140/137+140/136+140 --remote-components ejs:github --sponsorblock-remove all -o "%(title)s.%(ext)s"'
+alias yt='yt-dlp --config-locations ~/.config/yt-dlp/yt.conf'
+alias yta='yt-dlp --config-locations ~/.config/yt-dlp/yt-alt.conf'
 alias dl='aria2c -s16 -x16'
 
 # Mounting
