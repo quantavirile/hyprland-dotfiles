@@ -81,6 +81,10 @@ $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
 sed -i 's|^include=.*|include=~/.config/mpv/themes/catppuccin.conf|' "$HOME/.config/mpv/mpv.conf"
 echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
 
+# Set Zen browser
+sed -i 's#zen-userChrome.css"#zen-catppuccin-userChrome.css"#' "$HOME/.zen/btct0r7q.Default (release)-2/chrome/userChrome.css"
+sed -i 's#zen-userContent.css"#zen-catppuccin-userContent.css"#' "$HOME/.zen/btct0r7q.Default (release)-2/chrome/userContent.css"
+
 # Set Firefox
 cp "$HOME/.config/hyprland-dotfiles/firefox/catppuccin-wal-colors.json" "$HOME/.cache/wal/colors.json"
 pywalfox update

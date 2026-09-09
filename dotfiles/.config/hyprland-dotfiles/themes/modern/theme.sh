@@ -81,6 +81,10 @@ echo '~/Pictures/wallpaper' >$HOME/.config/hyprland-dotfiles/settings/wallpaper-
 sed -i 's|^folder = .*|folder = ~/Pictures/wallpaper|' $HOME/.config/waypaper/config.ini
 $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
 
+# Set Zen browser
+sed -i 's#zen-catppuccin-userChrome.css"#zen-userChrome.css"#' "$HOME/.zen/btct0r7q.Default (release)-2/chrome/userChrome.css"
+sed -i 's#zen-catppuccin-userContent.css"#zen-userContent.css"#' "$HOME/.zen/btct0r7q.Default (release)-2/chrome/userContent.css"
+
 # Set Firefox
 CHROME_DIR="$HOME/.mozilla/firefox/hbjpfw2v.default-release/chrome"
 mkdir -p "$CHROME_DIR"
