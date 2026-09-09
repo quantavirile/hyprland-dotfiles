@@ -118,3 +118,19 @@ post_hook = 'pkill -SIGUSR1 nvim'
 input_path = '~/.config/matugen/templates/mpv-colors.conf'
 output_path = '~/.config/mpv/themes/matugen.conf'
 post_hook = '~/.config/matugen/post-hook-scripts/mpv-reload.sh'
+
+[templates.firefox-website-colors]
+input_path = "~/.config/matugen/templates/firefox-colors.css"
+output_path = "~/.mozilla/firefox/hbjpfw2v.default-release/chrome/colors.css"
+
+[templates.zen-website-colors]
+input_path = "~/.config/matugen/templates/firefox-colors.css"
+output_path = "~/.zen/btct0r7q.Default (release)-2/chrome/colors.css"
+
+[templates.zen-userchrome]
+input_path = './templates/zen-userchrome.css'
+output_path = '~/.zen/btct0r7q.Default (release)-2/chrome/zen-userChrome.css'
+
+[templates.zen-usercontent]
+input_path = './templates/zen-usercontent.css'
+output_path = '~/.zen/btct0r7q.Default (release)-2/chrome/zen-userContent.css'
