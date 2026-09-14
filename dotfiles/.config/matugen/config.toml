@@ -134,3 +134,11 @@ output_path = '~/.zen/btct0r7q.Default (release)-2/chrome/zen-userChrome.css'
 [templates.zen-usercontent]
 input_path = './templates/zen-usercontent.css'
 output_path = '~/.zen/btct0r7q.Default (release)-2/chrome/zen-userContent.css'
+
+[templates.vscode-raw]
+input_path = '~/.config/matugen/templates/vscode-colors'
+output_path = '~/.cache/matugen/vscode-colors'
+
+[templates.vscode-json]
+input_path = '~/.config/matugen/templates/vscode-colors.json'
+output_path = '~/.cache/matugen/vscode-colors.json'
