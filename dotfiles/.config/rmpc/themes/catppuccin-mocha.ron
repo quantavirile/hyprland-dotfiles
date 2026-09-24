@@ -1,0 +1,190 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    default_album_art_path: None,
+    show_song_table_header: true,
+    draw_borders: true,
+    format_tag_separator: " - ",
+    browser_column_widths: [20, 38, 42],
+    background_color: "#1e1e2e",
+    text_color: "#cdd6f4",
+    header_background_color: "#181825",
+    modal_background_color: None,
+    modal_backdrop: false,
+    preview_label_style: (fg: "#cba6f7"),
+    preview_metadata_group_style: (fg: "#f5c2e7", modifiers: "Bold"),
+    tab_bar: (
+        active_style: (fg: "#1e1e2e", bg: "#cba6f7", modifiers: "Bold"),
+        inactive_style: (fg: "#cdd6f4", modifiers: "Bold"),
+    ),
+    highlighted_item_style: (fg: "#cba6f7", modifiers: "Bold"),
+    current_item_style: (fg: "#1e1e2e", bg: "#b4befe", modifiers: "Bold"),
+    borders_style: (fg: "#6c7086"),
+    highlight_border_style: (fg: "#b4befe"),
+    symbols: (
+        song: "\u{f001}",
+        dir: "\u{f07b}",
+        playlist: "\u{f00b}",
+        marker: "\u{e0b0}",
+        ellipsis: "...",
+        song_style: None,
+        dir_style: (fg: "#cba6f7"),
+        playlist_style: None,
+    ),
+    level_styles: (
+        info: (fg: "blue", bg: "black"),
+        warn: (fg: "yellow", bg: "black"),
+        error: (fg: "red", bg: "black"),
+        debug: (fg: "light_green", bg: "black"),
+        trace: (fg: "magenta", bg: "black"),
+    ),
+    progress_bar: (
+        symbols: ["\u{25d6}", "█", "\u{25d7}", "█", "\u{25d7}"],
+        track_style: (fg: "#45475a", bg: "#1e1e2e"),
+        elapsed_style: (fg: "#cba6f7", bg: "#1e1e2e"),
+        thumb_style: (fg: "#cba6f7", bg: "#45475a"),
+        use_track_when_empty: false,
+    ),
+    scrollbar: (
+        symbols: ["│", "█", "▲", "▼"],
+        track_style: (),
+        ends_style: (),
+        thumb_style: (fg: "#b4befe"),
+    ),
+    song_table_format: [
+        (
+            prop: (kind: Property(Artist), style: (fg: "#b4befe"), default: (kind: Text("Unknown"))),
+            width: "50%",
+            alignment: Right,
+        ),
+        (
+            prop: (kind: Text("-"), style: (fg: "#b4befe"), default: (kind: Text("Unknown"))),
+            width: "1",
+            alignment: Center,
+        ),
+        (
+            prop: (kind: Property(Title), style: (fg: "#74c7ec"), default: (kind: Text("Unknown"))),
+            width: "50%",
+        ),
+    ],
+    components: {},
+    border_symbol_sets: {
+        "rounded": (
+            top_left: "╭",
+            top_right: "╮",
+            bottom_left: "╰",
+            bottom_right: "╯",
+            vertical_left: "│",
+            vertical_right: "│",
+            horizontal_top: "─",
+            horizontal_bottom: "─",
+        ),
+    },
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                borders: "ALL",
+                border_symbols: Library("rounded"),
+                pane: Pane(Header),
+                size: "4",
+            ),
+            (
+                pane: Pane(Tabs),
+                size: "3",
+            ),
+            (
+                borders: "ALL",
+                border_symbols: Library("rounded"),
+                pane: Pane(TabContent),
+                size: "100%",
+            ),
+            (
+                borders: "ALL",
+                border_symbols: Library("rounded"),
+                pane: Pane(ProgressBar),
+                size: "3",
+            ),
+        ],
+    ),
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "#b4befe", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "#b4befe", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "#b4befe", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "#f9e2af", modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (fg: "#f9e2af", modifiers: "Bold"))
+                    ),
+                    (kind: Text(" - ")),
+                    (kind: Property(Song(Title)), style: (fg: "#74c7ec", modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (fg: "#74c7ec", modifiers: "Bold"))
+                    )
+                ],
+                right: [
+                    (kind: Text("Vol: "), style: (fg: "#b4befe", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "#b4befe", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "#b4befe", modifiers: "Bold"))
+                ]
+            ),
+            (
+                left: [
+                    (kind: Property(Status(Elapsed))),
+                    (kind: Text(" / ")),
+                    (kind: Property(Status(Duration))),
+                    (kind: Text(" (")),
+                    (kind: Property(Status(Bitrate))),
+                    (kind: Text(" kbps)"))
+                ],
+                center: [],
+                right: [
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "#cba6f7", modifiers: "Bold"),
+                            separator_style: (fg: "#cba6f7")))
+                        ),
+                        style: (fg: "#cdd6f4")
+                    ),
+                ]
+            ),
+        ],
+    ),
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Track), style: (fg: "#cba6f7")),
+                (kind: Text(" ")),
+            ])
+        ),
+        (
+            kind: Group([
+                (kind: Property(Artist), style: (fg: "#b4befe")),
+                (kind: Text(" - ")),
+                (kind: Property(Title), style: (fg: "#cba6f7")),
+            ]),
+            default: (kind: Property(Filename), style: (fg: "#cba6f7"))
+        ),
+    ],
+    lyrics: (
+        timestamp: false
+    ),
+    cava: (
+        bar_width: 2,
+        bar_spacing: 1,
+        orientation: Bottom,
+        bar_color: Gradient({
+            0:   "#94e2d5",
+            14:  "#89dceb",
+            28:  "#74c7ec",
+            43:  "#89b4fa",
+            57:  "#cba6f7",
+            71:  "#f5c2e7",
+            86:  "#eba0ac",
+            100: "#f38ba8",
+        })
+    ),
+)
