@@ -34,6 +34,9 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias shutdown='systemctl poweroff'
 
 # Package Management
+alias pacin='sudo pacman -S --needed'
+alias yain='yay -S --needed'
+alias i='sudo pacman -S --needed'
 alias cu='checkupdates'
 alias cuc='checkupdates | wc -l'
 alias ycu='yay -Qum'
