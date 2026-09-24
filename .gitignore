@@ -1,4 +1,5 @@
 *.log
 deploy.sh
 opencode-notifier-state.json
+dotfiles/.config/yazi/plugins/
 
