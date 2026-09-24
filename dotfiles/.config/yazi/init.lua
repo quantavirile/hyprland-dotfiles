@@ -5,8 +5,6 @@ require("session"):setup({
 
 require("full-border"):setup()
 
-require("recycle-bin"):setup()
-
 require("starship"):setup({
 	config_file = "~/.config/starship/starship-catppuccin.toml",
 })
