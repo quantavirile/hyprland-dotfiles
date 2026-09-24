@@ -73,3 +73,13 @@ prepend_previewers = [
 # https://yazi-rs.github.io/docs/configuration/yazi#tasks
 [tasks]
 image_alloc = 1073741824 # = 1024*1024*1024 = 1024MB
+
+[[plugin.prepend_fetchers]]
+url = "*"
+run = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url = "*/"
+run = "git"
+group = "git"
