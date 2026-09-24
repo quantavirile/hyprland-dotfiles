@@ -45,6 +45,12 @@ generate_firefox_usercontent() {
   local color8=$(jq -r '.colors.color8 // "#181825"' "$colors_json" 2>/dev/null)
   local color7=$(jq -r '.colors.color7 // "#585b70"' "$colors_json" 2>/dev/null)
   cat >"$chrome_dir/userContent.css" <<EOF
+@import url("/home/joy/.mozilla/firefox/hbjpfw2v.default-release/chrome/colors.css");
+
+@import url("/home/joy/.mozilla/firefox/hbjpfw2v.default-release/chrome/websites/bitwarden.css");
+@import url("/home/joy/.mozilla/firefox/hbjpfw2v.default-release/chrome/websites/github.css");
+@import url("/home/joy/.mozilla/firefox/hbjpfw2v.default-release/chrome/websites/youtube.css");
+
 @-moz-document url-prefix("about:preferences"),
                url-prefix("about:addons"),
                url-prefix("about:protections"),
@@ -291,10 +297,10 @@ if grep -q "catppuccin" "$HOME/.config/hypr/conf/theme.lua" 2>/dev/null; then
       pywalfox update
       info "catppuccin: pywalfox re-applied"
     fi
-      generate_firefox_usercontent "$HOME/.cache/wal/colors.json" "catppuccin"
-    fi
-    echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
+    generate_firefox_usercontent "$HOME/.cache/wal/colors.json" "catppuccin"
   fi
+  echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
+fi
 
 # Update SwayNC
 sleep 0.1
