@@ -25,7 +25,6 @@ hl.layer_rule({
 	blur = true,
 	dim_around = true,
 	ignore_alpha = 0.0,
-	no_anim = true,
 })
 
 ---- WINDOW RULES ----
