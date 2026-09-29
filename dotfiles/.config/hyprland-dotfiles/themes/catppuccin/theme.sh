@@ -79,7 +79,7 @@ $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper.sh --random
 
 # Set mpv
 sed -i 's|^include=.*|include=~/.config/mpv/themes/catppuccin.conf|' "$HOME/.config/mpv/mpv.conf"
-echo '{"command": ["load-config-file", "~/.config/mpv/themes/catppuccin.conf"]}' | socat - /tmp/mpv-socket 2>/dev/null || true
+"$HOME/.config/matugen/post-hook-scripts/mpv-reload.sh" "catppuccin.conf"
 
 # Set Zen browser
 sed -i 's#zen-userChrome.css"#zen-catppuccin-userChrome.css"#' "$HOME/.zen/btct0r7q.Default (release)-2/chrome/userChrome.css"
