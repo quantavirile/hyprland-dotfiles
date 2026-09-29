@@ -74,6 +74,9 @@ source <(fzf --zsh)
 # Prompt
 eval "$(starship init zsh)"
 
+# Bare transient prompt: collapse retired starship prompts (p10k-style)
+source ~/hyprland-dotfiles/dotfiles/.zshrc.d/transient-prompt.zsh
+
 # Run fastfetch on terminal open
 if [[ $(tty) == *"pts"* ]]; then
     fastfetch
