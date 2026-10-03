@@ -27,6 +27,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(HOME .. "/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper-restore.sh")
 	hl.exec_cmd(HOME .. "/.config/hyprland-dotfiles/scripts/listeners.sh --startall")
 	hl.exec_cmd(HOME .. "/.config/waybar/launch.sh")
+	hl.exec_cmd(HOME .. "/.config/nwg-dock-hyprland/launch.sh")
 
 	-- Application Services
 	hl.exec_cmd("elephant")

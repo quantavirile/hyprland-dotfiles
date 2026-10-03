@@ -9,8 +9,8 @@ echo "/ml4w-glass;/ml4w-glass/default" >$HOME/.config/hyprland-dotfiles/settings
 $HOME/.config/waybar/launch.sh &
 
 # Set nwg-dock-hyprland
-# echo "glass" > $HOME/.config/hyprland-dotfiles/settings/dock-theme
-# $HOME/.config/nwg-dock-hyprland/launch.sh &
+echo "glass" >$HOME/.config/hyprland-dotfiles/settings/dock-theme
+$HOME/.config/nwg-dock-hyprland/launch.sh &
 
 # Set swaync
 echo '@import "themes/glass/style.css";' >$HOME/.config/swaync/style.css
