@@ -24,3 +24,6 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 -- Theming Related Variables
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+-- Editor
+hl.env("EDITOR", "nvim")
