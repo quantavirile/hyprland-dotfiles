@@ -1,17 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  // "instructions": ["./custom-instructions.md"],
+  "autoupdate": false,
   "lsp": true,
   "default_agent": "plan",
   "plugin": ["@mohak34/opencode-notifier@latest"],
   "agent": {
     "build": {
-      "model": "opencode/muse-spark-1.2-contributor-free",
+      "model": "opencode/muse-spark-1.3-contributor-free",
       "variant": "high",
       "temperature": 0.2,
     },
     "plan": {
-      "model": "opencode/muse-spark-1.2-contributor-free",
+      "model": "opencode/muse-spark-1.3-contributor-free",
       "variant": "high",
       "temperature": 0.0,
     },
