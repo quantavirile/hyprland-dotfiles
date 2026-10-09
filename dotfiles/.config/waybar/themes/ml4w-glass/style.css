@@ -154,17 +154,25 @@ tooltip label {
 }
 
 window#waybar.empty #window {
+  background: transparent;
   background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
 }
 
 /* -----------------------------------------------------
- * Idle Inhibitor
+ * Custom Hypridle
  * ----------------------------------------------------- */
 
-#idle_inhibitor {
+#custom-hypridle {
+  margin-left: 10px;
 }
 
-#idle_inhibitor.activated {
+#custom-hypridle.notactive {
+  color: @error;
 }
 
 /* -----------------------------------------------------
@@ -186,15 +194,12 @@ window#waybar.empty #window {
 
 #custom-notification {
   font-size: 20px;
-  font-family: "Material Icons";
+  font-family:
+    "Symbols Nerd Font", "Font Awesome 7 Free", "Font Awesome 7 Brands",
+    "JetBrainsMono Nerd Font";
+  font-weight: bold;
   color: @icon_color;
-}
-
-/* -----------------------------------------------------
- * Custom Exit
- * ----------------------------------------------------- */
-
-#custom-exit {
+  margin-right: 10px;
 }
 
 /* -----------------------------------------------------
@@ -203,7 +208,7 @@ window#waybar.empty #window {
 
 #custom-updates.yellow {
   border-radius: 8px;
-  margin: 5px 0px 5px 5px;
+  margin: 5px 10px 5px 0px;
   padding: 0px 6px 0px 6px;
   background-color: @secondary;
   color: @on_secondary;
@@ -211,7 +216,7 @@ window#waybar.empty #window {
 
 #custom-updates.red {
   border-radius: 8px;
-  margin: 6px 0px 6px 7px;
+  margin: 6px 10px 6px 0px;
   padding: 0px 6px 0px 6px;
   background-color: @error;
   color: @on_error;
@@ -223,8 +228,17 @@ window#waybar.empty #window {
 
 #disk,
 #memory,
-#cpu,
-#language {
+#cpu {
+  margin: 0px;
+  padding: 0px;
+}
+
+#memory {
+  margin-right: 10px;
+}
+
+#custom-tools {
+  margin-left: 10px;
 }
 
 /* -----------------------------------------------------
@@ -232,6 +246,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #power-profiles-daemon {
+  margin-right: 0px;
 }
 
 /* -----------------------------------------------------
@@ -244,16 +259,6 @@ window#waybar.empty #window {
 }
 
 #clock:hover {
-}
-
-/* -----------------------------------------------------
- * Backlight
- * ----------------------------------------------------- */
-
-#backlight {
-}
-
-#backlight:hover {
 }
 
 /* -----------------------------------------------------
@@ -274,18 +279,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-}
-
-#network.ethernet:hover {
-}
-
-#network.wifi:hover {
-}
-
-#network.ethernet {
-}
-
-#network.wifi {
+  margin-right: 10px;
 }
 
 /* -----------------------------------------------------

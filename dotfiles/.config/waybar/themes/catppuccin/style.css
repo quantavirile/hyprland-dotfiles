@@ -183,9 +183,21 @@ tooltip label {
   background-color: transparent;
 }
 
+/* Hide window module when no windows are open */
+window#waybar.empty #window {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
+}
+
 #custom-notification {
-  font-family: "Material Icons";
+  font-family: "Symbols Nerd Font", "Font Awesome 7 Free", "Font Awesome 7 Brands", "JetBrainsMono Nerd Font";
   font-size: 18px;
+  font-weight: bold;
   color: @rosewater;
 }
 

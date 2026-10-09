@@ -1,34 +1,26 @@
 {
-    // General Settings
-    "layer": "top",
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "spacing": 0,
-    // Load Modules
-    "include": [
-        "~/.config/waybar/modules.json"
-    ],
-    // Modules Left
-    "modules-left": [
-        "hyprland/workspaces",
-        "mpris",        
-        "custom/empty"
-    ],
-    // Modules Center
-    "modules-center": [
-        "custom/empty"
-    ],
-    // Modules Right    
-    "modules-right": [
-        "custom/updates",
-        "group/hardware",
-        "group/tools",
-        "tray",
-        "network",
-        "battery",
-        "custom/notification",
-        "clock"
-    ]
+  // General Settings
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+  // Load Modules
+  "include": ["~/.config/waybar/modules.json"],
+  // Modules Left
+  "modules-left": ["hyprland/workspaces", "mpris", "custom/empty"],
+  // Modules Center
+  "modules-center": ["custom/empty"],
+  // Modules Right
+  "modules-right": [
+    "network",
+    "custom/updates",
+    "group/hardware",
+    "group/tools",
+    "tray",
+    "battery",
+    "clock",
+    "custom/notification",
+  ],
 }

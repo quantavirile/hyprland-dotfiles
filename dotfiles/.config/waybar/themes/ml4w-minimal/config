@@ -47,7 +47,6 @@
     "modules-left": [
         "custom/appmenuicon",
         "hyprland/workspaces",
-        //"group/quicklinks",
         "custom/empty"
     ],
     // Modules Center
@@ -57,19 +56,14 @@
     ],
     // Modules Right    
     "modules-right": [
-        "custom/updates",
-        "pulseaudio",
-        //"backlight",
-        "bluetooth",
         "network",
+        "custom/updates",
         "battery",
-        "power-profiles-daemon",
         "group/hardware",
         "group/tools",
         "custom/exit",
-        "clock",
         "tray",
         "custom/notification",
-        "custom/ml4w-welcome"
+        "clock"
     ]
 }

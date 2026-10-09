@@ -11,47 +11,59 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
-    border: none;
-    border-radius: 0px;
+  font-family:
+    "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands",
+    "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome,
+    "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  border-radius: 0px;
 }
 
 window#waybar {
-    background:transparent;
-    color: white;
+  background: transparent;
+  color: white;
 }
 
 .modules-left {
-    border-radius: 12px;
-    border: 1px solid transparent;
-    opacity:0.8;
-    padding:0px;
-    margin:10px;
-    box-shadow: inset 2px 2px 14px rgba(255, 255, 255, 0.6), inset 0 1px 2px 0px rgba(255, 255, 255, 0.6), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  opacity: 0.8;
+  padding: 0px;
+  margin: 10px;
+  box-shadow:
+    inset 2px 2px 14px rgba(255, 255, 255, 0.6),
+    inset 0 1px 2px 0px rgba(255, 255, 255, 0.6),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .modules-right {
-    border-radius: 12px;
-    border: 1px solid transparent;
-    opacity:0.8;
-    padding:0px;
-    margin:10px;
-    box-shadow: inset 0px 2px 14px 2px rgba(255, 255, 255, 0.6), inset 0 1px 2px 0px rgba(255, 255, 255, 0.6), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  opacity: 0.8;
+  padding: 0px;
+  margin: 10px;
+  box-shadow:
+    inset 0px 2px 14px 2px rgba(255, 255, 255, 0.6),
+    inset 0 1px 2px 0px rgba(255, 255, 255, 0.6),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .modules-center {
-    border-radius: 12px;
-    border: 1px solid transparent;
-    opacity:0.8;
-    margin:10px;
-    box-shadow: inset 2px 2px 14px rgba(255, 255, 255, 0.6), inset 0 1px 2px 0px rgba(255, 255, 255, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  opacity: 0.8;
+  margin: 10px;
+  box-shadow:
+    inset 2px 2px 14px rgba(255, 255, 255, 0.6),
+    inset 0 1px 2px 0px rgba(255, 255, 255, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 label.module {
-    font-size: 14px;
-    margin-left: 8px;
-    margin-right: 8px;
-    border-radius: 5px;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 5px;
 }
 
 /*
@@ -75,31 +87,33 @@ label.module {
  * ----------------------------------------------------- */
 
 #workspaces {
-padding: 5px 3px 5px 3px;
-min-width: 176px;
+  padding: 5px 3px 5px 3px;
+  min-width: 176px;
 }
 
 #workspaces button {
-color: @on_surface;
-border-radius: 3px;
-padding:0px 5px 0px 5px;
-margin:0px 2px 0px 2px;
-transition: all 0.3s ease-in-out;
-border: 1px solid transparent;
+  color: @on_surface;
+  border-radius: 3px;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 2px 0px 2px;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
 }
 
 #workspaces button.active {
-background:alpha(@primary,0.3);
-border: 1px solid transparent;
-transition: all 0.3s ease-in-out;
-min-width: 30px;
-border-radius: 8px;
-box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  background: alpha(@primary, 0.3);
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+  min-width: 30px;
+  border-radius: 8px;
+  box-shadow:
+    inset 1px 2px 2px rgba(255, 255, 255, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button:hover {
-background:alpha(@secondary,0.2);
-border-radius: 15px;
+  background: alpha(@secondary, 0.2);
+  border-radius: 15px;
 }
 
 /* -----------------------------------------------------
@@ -107,16 +121,19 @@ border-radius: 15px;
  * ----------------------------------------------------- */
 
 tooltip {
-    background-color: alpha(@surface,0.7);
-    border-radius: 12px;
-    border: 1px solid transparent;
-    opacity:0.7;
-    margin:10px;
-    box-shadow: inset 2px 2px 30px rgba(255, 255, 255, 0.8), inset 0 1px 2px 0px rgba(255, 255, 255, 1), inset 0 1px 1px rgba(255, 255, 255, 1);
+  background-color: alpha(@surface, 0.7);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  opacity: 0.7;
+  margin: 10px;
+  box-shadow:
+    inset 2px 2px 30px rgba(255, 255, 255, 0.8),
+    inset 0 1px 2px 0px rgba(255, 255, 255, 1),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
 }
 
 tooltip label {
-    color: white;
+  color: white;
 }
 
 /* -----------------------------------------------------
@@ -127,7 +144,13 @@ tooltip label {
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
 }
 
 /* -----------------------------------------------------
@@ -135,17 +158,17 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-padding: 5px 0px 5px 0px;
+  padding: 5px 0px 5px 0px;
 }
 
 #taskbar button {
-border-radius: 6px;
-padding:0px 5px 0px 5px;
+  border-radius: 6px;
+  padding: 0px 5px 0px 5px;
 }
 
 #taskbar button:hover {
-background:@primary;
-color:@on_primary;
+  background: @primary;
+  color: @on_primary;
 }
 
 #taskbar.empty {
@@ -156,23 +179,25 @@ color:@on_primary;
  * ----------------------------------------------------- */
 
 #custom-ml4w-welcome {
-margin-top:5px;
-margin-bottom:5px;
-background-image: url("../assets/ml4w-icon.svg");
-background-position: center;
-background-repeat: no-repeat;
-background-size: contain;
-padding-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-image: url("../assets/ml4w-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-right: 20px;
 }
 
 /* -----------------------------------------------------
- * Idle Inhibitor
+ * Custom Hypridle
  * ----------------------------------------------------- */
 
-#idle_inhibitor {
+#custom-hypridle {
+  margin-left: 10px;
 }
 
-#idle_inhibitor.activated {
+#custom-hypridle.notactive {
+  color: @error;
 }
 
 /* -----------------------------------------------------
@@ -180,8 +205,8 @@ padding-right: 20px;
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-padding-right:3px;
-padding-left:5px;
+  padding-right: 3px;
+  padding-left: 5px;
 }
 
 #custom-appmenu:hover {
@@ -205,9 +230,13 @@ padding-left:5px;
  * ----------------------------------------------------- */
 
 #custom-notification {
-font-size: 20px;
-font-family: "Material Icons";
-color: @icon_color;
+  font-size: 20px;
+  font-family:
+    "Symbols Nerd Font", "Font Awesome 7 Free", "Font Awesome 7 Brands",
+    "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  margin-right: 10px;
+  color: @icon_color;
 }
 
 /* -----------------------------------------------------
@@ -222,29 +251,38 @@ color: @icon_color;
  * ----------------------------------------------------- */
 
 #custom-updates.yellow {
-border-radius: 8px;
-margin:5px 0px 5px 5px;
-padding:0px 6px 0px 6px;
-background-color: @secondary;
-color: @on_secondary;
+  border-radius: 8px;
+  margin: 5px 0px 5px 5px;
+  padding: 0px 6px 0px 6px;
+  background-color: @secondary;
+  color: @on_secondary;
 }
 
 #custom-updates.red {
-border-radius: 8px;
-margin:6px 0px 6px 7px;
-padding:0px 6px 0px 6px;
-background-color: @error;
-color:@on_error;
+  border-radius: 8px;
+  margin: 6px 0px 6px 7px;
+  padding: 0px 6px 0px 6px;
+  background-color: @error;
+  color: @on_error;
 }
 
 /* -----------------------------------------------------
  * Hardware Group
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu,#language {
+#disk,
+#memory,
+#cpu {
+  margin: 0px;
+  padding: 0px;
 }
 
-#language {
+#memory {
+  margin-right: 10px;
+}
+
+#custom-tools {
+  margin-left: 10px;
 }
 
 /* -----------------------------------------------------
@@ -252,6 +290,7 @@ color:@on_error;
  * ----------------------------------------------------- */
 
 #power-profiles-daemon {
+  margin-right: 0px;
 }
 
 /* -----------------------------------------------------
@@ -259,8 +298,8 @@ color:@on_error;
  * ----------------------------------------------------- */
 
 #clock {
-margin-left: 12px;
-margin-right: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 #clock:hover {
@@ -312,7 +351,9 @@ margin-right: 12px;
  * Bluetooth
  * ----------------------------------------------------- */
 
-#bluetooth, #bluetooth.on, #bluetooth.connected {
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
 }
 
 #bluetooth:hover {
@@ -328,14 +369,15 @@ margin-right: 12px;
 #battery {
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
 }
 
 @keyframes blink {
-    to {
-        background-color: @background;
-        color: @on_surface;
-    }
+  to {
+    background-color: @background;
+    color: @on_surface;
+  }
 }
 
 #battery.critical:not(.charging) {
@@ -346,13 +388,13 @@ margin-right: 12px;
  * ----------------------------------------------------- */
 
 #tray {
-padding: 0px 5px 0px 10px;
+  padding: 0px 5px 0px 10px;
 }
 
 #tray > .passive {
--gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
--gtk-icon-effect: highlight;
+  -gtk-icon-effect: highlight;
 }

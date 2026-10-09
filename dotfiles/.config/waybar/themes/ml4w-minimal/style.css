@@ -99,7 +99,13 @@ tooltip label {
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+    background: transparent;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    box-shadow: none;
 }
 
 /* -----------------------------------------------------
@@ -256,11 +262,12 @@ window#waybar.empty #window {
  * Custom Notification
  * ----------------------------------------------------- */
 
- #custom-notification {
+  #custom-notification {
     margin: 0px 13px 0px 0px;
     padding:0px;
     font-size:20px;
-    font-family: "Material Icons";
+    font-family: "Symbols Nerd Font", "Font Awesome 7 Free", "Font Awesome 7 Brands", "JetBrainsMono Nerd Font";
+    font-weight: bold;
     color: @iconcolor;
     opacity: 0.8;
 }

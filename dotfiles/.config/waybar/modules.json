@@ -17,13 +17,11 @@
   "hyprland/window": {
     "max-length": 60,
     "rewrite": {
-      "(.*) - Brave": "$1",
-      "(.*) - Chromium": "$1",
-      "(.*) - Brave Search": "$1",
-      "(.*) - Outlook": "$1",
-      "(.*) Microsoft Teams": "$1"
+      "(.*) - mpv": "mpv"
     },
-    "separate-outputs": true
+    "separate-outputs": true,
+    "icon": true,
+    "fallback": ""
   },
   "custom/empty": {
     "format": ""
@@ -49,7 +47,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hyprland-dotfiles/scripts/check-updates.sh",
-    "interval": 7200, // Update every 2 hours. 1 hour = 3600 seconds
+    "interval": 3600, // Update every hour. 1 hour = 3600 seconds
     "signal": 1,
     "hide-empty-text": true,
     "on-click": "~/.config/hyprland-dotfiles/scripts/topgrade.sh"
@@ -58,14 +56,14 @@
     "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
     "format-icons": {
-      "notification": "notifications_active",
-      "none": "notifications",
-      "dnd-notification": "notifications_active",
-      "dnd-none": "notifications_paused",
-      "inhibited-notification": "notification_important",
-      "inhibited-none": "notification_important",
-      "dnd-inhibited-notification": "notification_off",
-      "dnd-inhibited-none": "notifications_off"
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": ""
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -97,6 +95,10 @@
     "format": "",
     "tooltip": false
   },
+  "custom/tray": {
+    "format": "",
+    "tooltip-format": "System tray"
+  },
   "cpu": {
     "format": "  {usage}% ",
     "on-click": "~/.config/hyprland-dotfiles/settings/system-monitor.sh"
@@ -123,10 +125,23 @@
     },
     "modules": ["custom/tools", "custom/hypridle", "power-profiles-daemon"]
   },
+  "group/tray": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-tray",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/tray", "tray"]
+  },
+  "group/controls": {
+    "orientation": "inherit",
+    "modules": ["group/hardware", "group/tools", "group/tray"]
+  },
   "network": {
     "format": "{bandwidthTotalBits} {ifname}",
-    "format-wifi": "{bandwidthTotalBits} 󰤨 ",
-    "format-ethernet": "{bandwidthTotalBits}  ",
+    "format-wifi": "󰤨 {bandwidthTotalBits}",
+    "format-ethernet": "  {bandwidthTotalBits}",
     "format-disconnected": "",
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "󰤨 {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
@@ -202,14 +217,16 @@
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",
-    "dynamic-len": 50,
+    "dynamic-len": 80,
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "interval": 1,
     "player-icons": {
       "default": "",
       "mpv": "",
       "spotify": "",
-      "kasts": ""
+      "kasts": "",
+      "mpd": "󰎈",
+      "freetube": ""
     },
     "status-icons": {
       "paused": ""
