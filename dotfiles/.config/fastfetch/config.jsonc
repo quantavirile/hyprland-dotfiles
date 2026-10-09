@@ -16,27 +16,34 @@
       "type": "custom",
     },
     {
-      "key": "│ {#31} user    {#keys}│",
+      "key": "│ {#34} user    {#keys}│",
       "type": "title",
       "format": "{user-name}",
     },
     {
-      "key": "│ {#32}󰇅 hname   {#keys}│",
+      "key": "│ {#34}󰇅 hname   {#keys}│",
       "type": "title",
       "format": "{host-name}",
     },
     {
-      "type": "command",
-      "key": "│ {#33}󱦟 os age  {#keys}|",
-      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days",
+      "condition": {
+        // Conditional module: only show on non-macOS
+        "!system": "macOS",
+      },
+      "type": "disk",
+      "keyIcon": "",
+      "key": "│{#34} {icon} os age {#keys} │",
+      // "keyColor": "magenta",
+      "folders": "/", // Check root filesystem
+      "format": "{create-time:10} [{days} days ({years} years)]", // Show creation time and age in days
     },
     {
       "type": "command",
-      "key": "│ {#33}󰚰 updated {#keys}│",
-      "text": "last=$(awk '/starting full system upgrade/{tmp=$1;gsub(/[][]/,\"\",tmp)} /transaction completed/{t=tmp;ok=1} /transaction interrupted/{ok=0} END{if(ok&&t)print t}' /var/log/pacman.log) && echo $(( ($(date +%s) - $(date -d \"$last\" +%s)) / 86400 )) days"
+      "key": "│ {#34}󰚰 updated {#keys}│",
+      "text": "last=$(awk '/starting full system upgrade/{tmp=$1;gsub(/[][]/,\"\",tmp)} /transaction completed/{t=tmp;ok=1} /transaction interrupted/{ok=0} END{if(ok&&t)print t}' /var/log/pacman.log) && echo $(( ($(date +%s) - $(date -d \"$last\" +%s)) / 86400 )) days",
     },
     {
-      "key": "│ {#37}󰅐 uptime  {#keys}│",
+      "key": "│ {#34}󰅐 uptime  {#keys}│",
       "type": "uptime",
     },
     {
@@ -44,27 +51,31 @@
       "type": "os",
     },
     {
-      "key": "│ {#35} kernel  {#keys}│",
+      "key": "│ {#34} kernel  {#keys}│",
       "type": "kernel",
     },
     {
-      "key": "│ {#36} wm      {#keys}│",
+      "key": "│ {#34} wm      {#keys}│",
       "type": "wm",
     },
     {
-      "key": "│ {#33}󰏖 packages{#keys}│",
+      "key": "│ {#34}󰇄 desktop {#keys}│",
+      "type": "de",
+    },
+    {
+      "key": "│ {#34}󰏖 packages{#keys}│",
       "type": "packages",
     },
     {
-      "key": "│ {#31} terminal{#keys}│",
+      "key": "│ {#34} terminal{#keys}│",
       "type": "terminal",
     },
     {
-      "key": "│ {#32} shell   {#keys}│",
+      "key": "│ {#34} shell   {#keys}│",
       "type": "shell",
     },
     {
-      "key": "│ {#33}󰍛 cpu     {#keys}│",
+      "key": "│ {#34}󰍛 cpu     {#keys}│",
       "type": "cpu",
       "showPeCoreCount": true,
     },
@@ -74,7 +85,12 @@
       "folders": "/",
     },
     {
-      "key": "│ {#36} memory  {#keys}│",
+      "key": "│ {#34}󰉉 disk    {#keys}│",
+      "type": "disk",
+      "folders": "/home",
+    },
+    {
+      "key": "│ {#34} memory  {#keys}│",
       "type": "memory",
     },
     {
@@ -82,7 +98,7 @@
       "type": "custom",
     },
     {
-      "key": "│ {#39} colors  {#keys}│",
+      "key": "│ {#34} colors  {#keys}│",
       "type": "colors",
       "symbol": "circle",
     },
