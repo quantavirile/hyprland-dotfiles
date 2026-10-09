@@ -8,12 +8,6 @@
 #   ./setup.sh --yes --minimal     # unattended lean install (VMs/tests)
 #   ./setup.sh --restore           # revert latest backup run, then exit
 #   ./setup.sh --restore 20261006T143501  # revert a specific run
-#
-# Flow: preflight -> cachyos repos ->
-#       system update -> packages -> megasync (official) ->
-#       flatpak (flathub + apps from ./flatpaks) ->
-#       self-contained stow w/ centralized backups -> services+shell ->
-#       yazi plugins -> validate.
 
 set -euo pipefail
 
