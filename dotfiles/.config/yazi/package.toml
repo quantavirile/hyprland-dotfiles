@@ -1,16 +1,16 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "f703392"
+rev = "6229767"
 hash = "f281261ff04ad7ec867c3f802a50835f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "f703392"
+rev = "6229767"
 hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "f703392"
+rev = "6229767"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
 [[plugin.deps]]
@@ -31,7 +31,7 @@ hash = "9776f378459072b6c2875eae5addc49d"
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
 rev = "f1cec0b"
-hash = "246c5b95a750a37351f81be79f04c380"
+hash = "fd9312e974c63438b1f8737711462d52"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
