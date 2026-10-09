@@ -185,6 +185,15 @@
 }
 
 /* === Notifications === */
+.control-center .notification-row .notification-background .notification {
+  background-color: @surface_container;
+  border-radius: 10px;
+  margin: 5px 0px;
+  padding: 15px;
+  border: 2px solid @bordercolor;
+  min-height: 2.5em;
+}
+
 .control-center .notification-row .notification-background .notification.critical {
   background-color: @surface_container;
   border-radius: 10px;
@@ -200,7 +209,7 @@
   color: @text;
   padding: 5px;
 }
-z
+
 .control-center .notification-row .notification-background .close-button:hover {
   background-color: @activecolor;
 }
