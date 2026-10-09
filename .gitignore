@@ -2,4 +2,5 @@
 deploy.sh
 opencode-notifier-state.json
 dotfiles/.config/yazi/plugins/
+dotfiles/.config/mpv/crop-memory.json
 
