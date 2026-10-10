@@ -1,14 +1,20 @@
+# Matugen theme for gdu
+# Generated with Matugen — do not edit manually.
+# Source: dotfiles/.config/matugen/templates/gdu.yaml
 style:
-  footer:
-    text-color: "#1e1e2e"
-    background-color: "#cba6f7"
-    number-color: "#11111b"
   selected-row:
-    text-color: "#1e1e2e"
-    background-color: "#cba6f7"
-  result-row:
-    number-color: "#fab387"
-    directory-color: "#cba6f7"
+    text-color: "#4b1f4a"
+    background-color: "#efb4e8"
+  marked:
+    text-color: "#3c2b3a"
+    background-color: "#d9bfd3"
+  footer:
+    text-color: "#4b1f4a"
+    background-color: "#efb4e8"
+    number-color: "#4b1f4a"
   header:
-    text-color: "#1e1e2e"
-    background-color: "#cba6f7"
+    text-color: "#4b1f4a"
+    background-color: "#efb4e8"
+  result-row:
+    number-color: "#d9bfd3"
+    directory-color: "#efb4e8"

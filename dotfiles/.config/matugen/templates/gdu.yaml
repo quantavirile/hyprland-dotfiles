@@ -1,0 +1,20 @@
+# Matugen theme for gdu
+# Generated with Matugen — do not edit manually.
+# Source: dotfiles/.config/matugen/templates/gdu.yaml
+style:
+  selected-row:
+    text-color: "{{colors.on_primary.default.hex}}"
+    background-color: "{{colors.primary.default.hex}}"
+  marked:
+    text-color: "{{colors.on_secondary.default.hex}}"
+    background-color: "{{colors.secondary.default.hex}}"
+  footer:
+    text-color: "{{colors.on_primary.default.hex}}"
+    background-color: "{{colors.primary.default.hex}}"
+    number-color: "{{colors.on_primary.default.hex}}"
+  header:
+    text-color: "{{colors.on_primary.default.hex}}"
+    background-color: "{{colors.primary.default.hex}}"
+  result-row:
+    number-color: "{{colors.secondary.default.hex}}"
+    directory-color: "{{colors.primary.default.hex}}"
