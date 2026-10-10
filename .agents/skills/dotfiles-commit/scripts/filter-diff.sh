@@ -24,6 +24,7 @@ EXCLUDES=(
   ':(exclude)dotfiles/.config/hyprland-dotfiles/colors/'
   ':(exclude)dotfiles/.config/fuzzel/colors.ini'
   ':(exclude)dotfiles/.config/fzf/colors'
+  ':(exclude)dotfiles/.zshrc.d/zsh-syntax-highlighting/themes/matugen-zsh-syntax-highlighting.zsh'
   ':(exclude)dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml'
   ':(exclude)dotfiles/.config/starship/starship-matugen.toml'
   ':(exclude)dotfiles/.config/mpv/themes/matugen.conf'

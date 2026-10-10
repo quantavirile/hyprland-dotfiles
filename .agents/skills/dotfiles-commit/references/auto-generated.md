@@ -19,6 +19,7 @@ These files are written by matugen (color/template engine) or its post-hooks. Ch
 - `dotfiles/.config/hyprland-dotfiles/colors/`
 - `dotfiles/.config/fuzzel/colors.ini`
 - `dotfiles/.config/fzf/colors`
+- `dotfiles/.zshrc.d/zsh-syntax-highlighting/themes/matugen-zsh-syntax-highlighting.zsh`
 - `dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml`
 - `dotfiles/.config/starship/starship-matugen.toml`
 - `dotfiles/.config/mpv/themes/matugen.conf`

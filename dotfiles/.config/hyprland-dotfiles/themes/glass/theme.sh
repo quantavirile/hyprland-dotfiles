@@ -77,6 +77,9 @@ sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/stars
 # Set fzf
 sed -i 's|^export FZF_DEFAULT_OPTS_FILE=.*|export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzf/colors"|' "$HOME/.zshrc"
 
+# Set zsh-syntax-highlighting
+sed -i 's|^source .*zsh-syntax-highlighting/themes/.*|source "$HOME/.zshrc.d/zsh-syntax-highlighting/themes/matugen-zsh-syntax-highlighting.zsh"|' "$HOME/.zshrc"
+
 # Set opencode
 sed -i 's|"theme": ".*"|"theme": "matugen"|' "$HOME/.config/opencode/tui.json"
 

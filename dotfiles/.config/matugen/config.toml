@@ -105,6 +105,10 @@ output_path = '~/.config/fuzzel/colors.ini'
 input_path = '~/.config/matugen/templates/fzf-colors'
 output_path = '~/.config/fzf/colors'
 
+[templates.zsh-syntax-highlighting]
+input_path = '~/.config/matugen/templates/zsh-syntax-highlighting.zsh'
+output_path = '~/.zshrc.d/zsh-syntax-highlighting/themes/matugen-zsh-syntax-highlighting.zsh'
+
 [templates.opencode]
 input_path = '~/.config/matugen/templates/opencode-colors.json'
 output_path = '~/.config/opencode/themes/matugen.json'
