@@ -101,6 +101,10 @@ post_hook = '~/.config/matugen/post-hook-scripts/yazi-reload.sh || true'
 input_path = '~/.config/matugen/templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/colors.ini'
 
+[templates.fzf]
+input_path = '~/.config/matugen/templates/fzf-colors'
+output_path = '~/.config/fzf/colors'
+
 [templates.opencode]
 input_path = '~/.config/matugen/templates/opencode-colors.json'
 output_path = '~/.config/opencode/themes/matugen.json'

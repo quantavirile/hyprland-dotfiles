@@ -18,6 +18,7 @@ These files are written by matugen (color/template engine) or its post-hooks. Ch
 - `dotfiles/.config/rmpc/themes/matugen.ron`
 - `dotfiles/.config/hyprland-dotfiles/colors/`
 - `dotfiles/.config/fuzzel/colors.ini`
+- `dotfiles/.config/fzf/colors`
 - `dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml`
 - `dotfiles/.config/starship/starship-matugen.toml`
 - `dotfiles/.config/mpv/themes/matugen.conf`

@@ -69,6 +69,9 @@ $HOME/.spicetify/spicetify apply
 # Set starship
 sed -i 's|^export STARSHIP_CONFIG=.*|export STARSHIP_CONFIG="$HOME/.config/starship/starship-catppuccin.toml"|' "$HOME/.zshrc"
 
+# Set fzf
+sed -i 's|^export FZF_DEFAULT_OPTS_FILE=.*|export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzf/mocha"|' "$HOME/.zshrc"
+
 # Set opencode
 sed -i 's|"theme": ".*"|"theme": "catppuccin"|' "$HOME/.config/opencode/tui.json"
 

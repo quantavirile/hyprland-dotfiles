@@ -23,6 +23,7 @@ EXCLUDES=(
   ':(exclude)dotfiles/.config/rmpc/themes/matugen.ron'
   ':(exclude)dotfiles/.config/hyprland-dotfiles/colors/'
   ':(exclude)dotfiles/.config/fuzzel/colors.ini'
+  ':(exclude)dotfiles/.config/fzf/colors'
   ':(exclude)dotfiles/.config/yazi/flavors/matugen.yazi/flavor.toml'
   ':(exclude)dotfiles/.config/starship/starship-matugen.toml'
   ':(exclude)dotfiles/.config/mpv/themes/matugen.conf'

@@ -1,0 +1,7 @@
+# FZF Colors
+# Generated with Matugen
+--color=bg+:#302921,bg:#18120c,spinner:#f7bc70,hl:#f7bc70
+--color=fg:#ede0d4,header:#dec2a2,info:#bacd9f,pointer:#f7bc70
+--color=marker:#dec2a2,fg+:#ede0d4,prompt:#f7bc70,hl+:#f7bc70
+--color=selected-bg:#643f00
+--color=border:#9c8e80,label:#ede0d4

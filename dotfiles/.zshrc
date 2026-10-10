@@ -11,7 +11,7 @@ export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.spicetify:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship-matugen.toml"
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_DEFAULT_OPTS_FILE="$HOME/.fzfrc"
+export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzf/colors"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
