@@ -65,16 +65,25 @@ _get_choice_rofi() {
 }
 
 # -----------------------------------------------------
+# Use Fuzzel to select the theme
+# -----------------------------------------------------
+_get_choice_fuzzel() {
+  echo $(echo -e "$listNames" | fuzzel --dmenu --index --config="$HOME/.config/fuzzel/themes.ini")
+}
+
+# -----------------------------------------------------
 # Show dialog
 # -----------------------------------------------------
 listNames=${listNames::-2}
 
 if [ "$launcher" == "walker" ]; then
   choice=$(_get_choice_walker)
-elif [ "$launcher" == "fuzzel" ]; then
-  choice=$(echo -e "$listNames" | fuzzel --dmenu --config="$HOME/.config/fuzzel/themes.ini")
-else
+elif [ "$launcher" == "rofi" ]; then
   choice=$(_get_choice_rofi)
+elif [ "$launcher" == "fuzzel" ]; then
+  choice=$(_get_choice_fuzzel)
+else
+  echo "The launcher is unsupported. Select another launcher"
 fi
 
 IFS="~"
