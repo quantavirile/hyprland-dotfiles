@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-#                                      __   
-#   ___ ____ ___ _  ___ __ _  ___  ___/ /__ 
+#                                      __
+#   ___ ____ ___ _  ___ __ _  ___  ___/ /__
 #  / _ `/ _ `/  ' \/ -_)  ' \/ _ \/ _  / -_)
-#  \_, /\_,_/_/_/_/\__/_/_/_/\___/\_,_/\__/ 
-# /___/                                     
-# 
+#  \_, /\_,_/_/_/_/\__/_/_/_/\___/\_,_/\__/
+# /___/
+#
 
 # Notifications
 source "$HOME/.config/hyprland-dotfiles/scripts/ml4w-notification-handler"
 
 _loadGameMode() {
-    hyprctl --batch "\
+  hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword decoration:shadow:enabled 0;\
         keyword decoration:blur:enabled 0;\
@@ -20,10 +20,10 @@ _loadGameMode() {
         keyword decoration:rounding 0"
 }
 
-if [ -f $HOME/.config/hyprland-dotfiles/gamemode-enabled ]; then
-    _loadGameMode
-    notify_user --a "System" \
-        --i "joystick" \
-        --s "Gamemode activated" \
-        --m "Animations and blur are now disabled."
+if [ -f $HOME/.config/hyprland-dotfiles/settings/gamemode-enabled ]; then
+  _loadGameMode
+  notify_user --a "System" \
+    --i "joystick" \
+    --s "Gamemode activated" \
+    --m "Animations and blur are now disabled."
 fi
