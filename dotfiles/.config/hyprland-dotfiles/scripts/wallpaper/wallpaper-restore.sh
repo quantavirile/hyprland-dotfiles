@@ -10,32 +10,48 @@
 # Restore last wallpaper
 # -----------------------------------------------------
 
-# -----------------------------------------------------
-# Set defaults
-# -----------------------------------------------------
+CACHE_DIR="$HOME/.cache/hyprland-dotfiles"
+CACHE_FILE="$CACHE_DIR/current_wallpaper"
 
-ml4w_cache_folder="$HOME/.cache/hyprland-dotfiles"
-
-defaultwallpaper="$HOME/.config/hyprland-dotfiles/wallpapers/default.jpg"
-
-cachefile="$ml4w_cache_folder/current_wallpaper"
+mkdir -p "$CACHE_DIR"
 
 # -----------------------------------------------------
 # Get current wallpaper
 # -----------------------------------------------------
 
-if [ -f "$cachefile" ]; then
-  sed -i "s|~|$HOME|g" "$cachefile"
-  wallpaper=$(cat $cachefile)
-  if [ -f $wallpaper ]; then
-    echo ":: Wallpaper $wallpaper exists"
+wallpaper=""
+
+if [ -f "$CACHE_FILE" ]; then
+  cached="$(cat "$CACHE_FILE" 2>/dev/null)"
+  # Expand leading ~ and $HOME without mutating the cache file.
+  case "$cached" in
+  "~"/*) cached="$HOME/${cached#~/}" ;;
+  esac
+  cached="${cached//\$HOME/$HOME}"
+  if [ -n "$cached" ] && [ -f "$cached" ]; then
+    echo ":: Wallpaper $cached exists"
+    wallpaper="$cached"
   else
-    echo ":: Wallpaper $wallpaper does not exist. Using default."
-    wallpaper=$defaultwallpaper
+    echo ":: Wallpaper $cached does not exist." >&2
   fi
 else
-  echo ":: $cachefile does not exist. Using default wallpaper."
-  wallpaper=$defaultwallpaper
+  echo ":: $CACHE_FILE does not exist." >&2
+fi
+
+if [ -z "$wallpaper" ]; then
+  echo ":: ERROR: no cached wallpaper found." >&2
+  exit 1
+fi
+
+# -----------------------------------------------------
+# Ensure backend daemon is running (mirrors wallpaper.sh)
+# -----------------------------------------------------
+
+if ! pgrep -x "awww-daemon" >/dev/null 2>&1; then
+  mkdir -p "$HOME/.cache/awww"
+  echo ":: Starting awww-daemon..."
+  awww-daemon &
+  sleep 1
 fi
 
 # -----------------------------------------------------
@@ -43,7 +59,8 @@ fi
 # -----------------------------------------------------
 
 echo ":: Setting wallpaper with source image $wallpaper"
-if [ -f ~/.local/bin/waypaper ]; then
-  export PATH=$PATH:~/.local/bin/
+if ! command -v waypaper >/dev/null 2>&1; then
+  echo ":: ERROR: waypaper not found in PATH." >&2
+  exit 1
 fi
 waypaper --wallpaper "$wallpaper"
