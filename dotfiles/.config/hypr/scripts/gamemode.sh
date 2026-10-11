@@ -6,41 +6,34 @@
 # /___/                                     
 # 
 
-cache_folder="$HOME/.cache/hyprland-dotfiles"
-gamemode_monitor="$HOME/.config/hypr/conf/monitors/gamemode.conf"
 
-if [ -f $HOME/.config/hyprland-dotfiles/gamemode-enabled ]; then
-  if [ -f $cache_folder/last_monitor.conf ]; then
-    cat $cache_folder/last_monitor.conf > $HOME/.config/hypr/conf/monitor.conf
-    rm $cache_folder/last_monitor.conf
-  fi
-  if [ -f $cache_folder/restart-wpauto ]; then
-    rm $cache_folder/restart-wpauto
-    $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper-automation.sh &
+CACHE_DIR="$HOME/.cache/hyprland-dotfiles"
+
+# Notifications
+source "$HOME/.config//hprland-dotfiles/scripts/ml4w-notification-handler"
+APP_NAME="System"
+NOTIFICATION_ICON="joystick"
+
+if [ -f $HOME/.config/hprland-dotfiles/settings/gamemode-enabled ]; then
+  if [ -f $CACHE_DIR/restart-wpauto ]; then
+    rm $CACHE_DIR/restart-wpauto
+    $HOME/.config/hprland-dotfiles/scripts/wallpaper/wallpaper-automation.sh &
   fi
   hyprctl reload
-  rm $HOME/.config/hyprland-dotfiles/gamemode-enabled
-  notify-send "Gamemode deactivated" "Animations and blur enabled"
+  rm $HOME/.config//hprland-dotfiles/settings/gamemode-enabled
+  notify_user --a "${APP_NAME}" \
+            --i "${NOTIFICATION_ICON}" \
+            --s "Gamemode deactivated" \
+            --m "Animations and blur are now enabled."
 else
-  if [ -f $gamemode_monitor ]; then
-    cat $HOME/.config/hypr/conf/monitor.conf > $cache_folder/last_monitor.conf
-    echo "source = $gamemode_monitor" > $HOME/.config/hypr/conf/monitor.conf
+  if [ -f $CACHE_DIR/wallpaper-automation ]; then
+    touch $CACHE_DIR/restart-wpauto
+    $HOME/.config/hprland-dotfiles/scripts/wallpaper/wallpaper-automation.sh
   fi
-  if [ -f $cache_folder/wallpaper-automation ]; then
-    touch $cache_folder/restart-wpauto
-    $HOME/.config/hyprland-dotfiles/scripts/wallpaper/wallpaper-automation.sh
-  fi
-  hyprctl --batch "\
-    keyword animations:enabled 0;\
-    keyword decoration:shadow:enabled 0;\
-    keyword decoration:blur:enabled 0;\
-    keyword general:gaps_in 0;\
-    keyword general:gaps_out 0;\
-    keyword general:border_size 1;\
-    keyword decoration:active_opacity 1;\
-    keyword decoration:inactive_opacity 1;\
-    keyword decoration:fullscreen_opacity 1;\
-    keyword decoration:rounding 0"
-  touch $HOME/.config/hyprland-dotfiles/gamemode-enabled
-  notify-send "Gamemode activated" "Animations and blur disabled"
+  hyprctl eval "activate_gamemode()"
+  touch $HOME/.config/hprland-dotfiles/settings/gamemode-enabled
+  notify_user --a "${APP_NAME}" \
+          --i "${NOTIFICATION_ICON}" \
+          --s "Gamemode activated" \
+          --m "Animations and blur are now disabled."
 fi
