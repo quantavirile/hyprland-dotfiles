@@ -581,7 +581,7 @@ post_services() {
   fi
 
   local svc
-  for svc in NetworkManager bluetooth sddm power-profiles-daemon thermald cups vnstat; do
+  for svc in NetworkManager ModemManager bluetooth power-profiles-daemon thermald vnstat keyd cpupower cronie; do
     if systemctl cat "$svc" >/dev/null 2>&1 || systemctl cat "$svc.service" >/dev/null 2>&1; then
       run sudo systemctl enable --now "$svc" || record_error "Failed to enable $svc."
     else
@@ -589,9 +589,13 @@ post_services() {
     fi
   done
 
-  if systemctl --user cat syncthing.service >/dev/null 2>&1; then
-    run systemctl --user enable --now syncthing || record_error "Failed to enable user syncthing."
+  for svc in mpd mpd-mpris safeeyes-media-afk; do
+  if systemctl --user cat $svc >/dev/null 2>&1; then
+    run systemctl --user enable --now $svc || record_error "Failed to enable user $svc."
+  else
+      info "Service $svc not installed, skipping."
   fi
+  done
 }
 
 post_toolchains() {
@@ -602,10 +606,10 @@ post_toolchains() {
     if [[ "$DRY_RUN" == 1 ]]; then
       log "+ ya pkg install"
     else
-      ya pkg install || record_error "yazi plugin install failed."
+      ya pkg install || record_error "yazi plugins install failed."
     fi
   else
-    info "ya not found, skipping yazi plugins (available after opening yazi)."
+    info "ya not found, skipping yazi plugins."
   fi
 }
 
