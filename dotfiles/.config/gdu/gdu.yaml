@@ -3,18 +3,18 @@
 # Source: dotfiles/.config/matugen/templates/gdu.yaml
 style:
   selected-row:
-    text-color: "#4b1f4a"
-    background-color: "#efb4e8"
+    text-color: "#542106"
+    background-color: "#ffb596"
   marked:
-    text-color: "#3c2b3a"
-    background-color: "#d9bfd3"
+    text-color: "#442a1f"
+    background-color: "#e6beae"
   footer:
-    text-color: "#4b1f4a"
-    background-color: "#efb4e8"
-    number-color: "#4b1f4a"
+    text-color: "#542106"
+    background-color: "#ffb596"
+    number-color: "#542106"
   header:
-    text-color: "#4b1f4a"
-    background-color: "#efb4e8"
+    text-color: "#542106"
+    background-color: "#ffb596"
   result-row:
-    number-color: "#d9bfd3"
-    directory-color: "#efb4e8"
+    number-color: "#e6beae"
+    directory-color: "#ffb596"
