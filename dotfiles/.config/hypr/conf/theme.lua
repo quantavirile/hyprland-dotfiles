@@ -1,1 +1,1 @@
-require("conf.themes.catppuccin")
+require("conf.themes.glass")

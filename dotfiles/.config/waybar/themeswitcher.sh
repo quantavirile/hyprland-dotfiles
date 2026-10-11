@@ -61,7 +61,7 @@ _get_choice_walker() {
 # Use Rofi to select the theme
 # -----------------------------------------------------
 _get_choice_rofi() {
-  echo $(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/.config/rofi/catppuccin/config-waybar-themes.rasi -format i)
+  echo $(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/.config/rofi/ml4w/config-waybar-themes.rasi -format i)
 }
 
 # -----------------------------------------------------

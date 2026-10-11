@@ -6,7 +6,7 @@ require("session"):setup({
 require("full-border"):setup()
 
 require("starship"):setup({
-	config_file = "~/.config/starship/starship-catppuccin.toml",
+	config_file = "~/.config/starship/starship-matugen.toml",
 })
 
 require("git"):setup({

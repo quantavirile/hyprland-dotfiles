@@ -55,7 +55,7 @@ if [ "$(argc $OCR_LANGUAGE_LIST)" -gt 1 ]; then
     elif [ "$launcher" == "walker" ]; then
         OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | $HOME/.config/walker/launch.sh -d -N -H -p "Select OCR Language")
     else
-        OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | rofi -dmenu -replace -config ~/.config/rofi/catppuccin/config-ocr-lang.rasi -i -no-show-icons -p "Select the OCR language")
+        OCR_LANGUAGE=$(echo -e "$OCR_LANGUAGE_LIST" | rofi -dmenu -replace -config ~/.config/rofi/ml4w/config-ocr-lang.rasi -i -no-show-icons -p "Select the OCR language")
     fi
     sleep 0.5 || true
 fi

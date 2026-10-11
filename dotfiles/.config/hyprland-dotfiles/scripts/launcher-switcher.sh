@@ -38,7 +38,7 @@ fuzzel_menu() {
 rofi_menu() {
   printf '%s\n' "${launchers[@]}" | rofi \
     -dmenu \
-    -config ~/.config/rofi/catppuccin/config-launchers.rasi
+    -config ~/.config/rofi/ml4w/config-launchers.rasi
 }
 
 # Walker menu
