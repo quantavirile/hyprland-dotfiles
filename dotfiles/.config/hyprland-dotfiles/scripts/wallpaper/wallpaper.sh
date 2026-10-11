@@ -5,13 +5,13 @@ IMAGE_PATH=""
 EFFECT=""
 NOTIFICATIONS=false
 SKIP=false
-CACHE_FOLDER="$HOME/.cache/hyprland-dotfiles"
-EFFECTS_CACHE="$CACHE_FOLDER/effects"
-CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
-DEFAULT_WALLPAPER="/usr/share/hypr/wall0.png"
-BLURRED_WALLPAPER="$CACHE_FOLDER/blurred_wallpaper.png"
-SQUARE_WALLPAPER="$CACHE_FOLDER/square_wallpaper.png"
-RASI_FILE="$CACHE_FOLDER/current_wallpaper.rasi"
+CACHE_DIR="$HOME/.cache/hyprland-dotfiles"
+EFFECTS_CACHE="$CACHE_DIR/effects"
+CACHE_FILE="$CACHE_DIR/current_wallpaper"
+DEFAULT_WALLPAPER="$HOME/.config/hyprland-dotfiles/assets/wallpapers/default.jpg"
+BLURRED_WALLPAPER="$CACHE_DIR/blurred_wallpaper.png"
+SQUARE_WALLPAPER="$CACHE_DIR/square_wallpaper.png"
+RASI_FILE="$CACHE_DIR/current_wallpaper.rasi"
 
 # Settings
 SETTINGS_BLUR="$HOME/.config/hyprland-dotfiles/settings/blur.sh"
@@ -139,13 +139,14 @@ while [[ $# -gt 0 ]]; do
       IMAGE_PATH=$(find "$RANDOM_FOLDER" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | shuf -n 1)
 
       if [[ -z "$IMAGE_PATH" ]]; then
-        error "No valid images (jpg, jpeg, png) found in -> $RANDOM_FOLDER"
-        exit 1
+        warn "No valid images (jpg, jpeg, png) found in -> $RANDOM_FOLDER. Falling back to bundled default."
+        IMAGE_PATH="$DEFAULT_WALLPAPER"
+      else
+        info "Random wallpaper selected: $IMAGE_PATH"
       fi
-      info "Random wallpaper selected: $IMAGE_PATH"
     else
-      error "Directory does not exist -> $RANDOM_FOLDER"
-      exit 1
+      warn "Directory does not exist -> $RANDOM_FOLDER. Falling back to bundled default."
+      IMAGE_PATH="$DEFAULT_WALLPAPER"
     fi
     ;;
   --notifications)
@@ -186,7 +187,12 @@ if [[ -z "$IMAGE_PATH" ]]; then
 fi
 
 if [[ ! -f "$IMAGE_PATH" ]]; then
-  error "Image file does not exist at -> $IMAGE_PATH"
+  warn "Image file does not exist at -> $IMAGE_PATH. Trying bundled default."
+  IMAGE_PATH="$DEFAULT_WALLPAPER"
+fi
+
+if [[ ! -f "$IMAGE_PATH" ]]; then
+  error "No usable wallpaper found (checked requested image, bundled default)."
   exit 1
 fi
 
@@ -195,8 +201,8 @@ fi
 # ==========================================
 
 # Create cache folder
-if [ ! -d "$CACHE_FOLDER" ]; then
-  mkdir -p "$CACHE_FOLDER"
+if [ ! -d "$CACHE_DIR" ]; then
+  mkdir -p "$CACHE_DIR"
 fi
 
 # Ensure awww-daemon is running
